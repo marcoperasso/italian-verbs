@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     >
+
+   
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="congiuntivo_presente_checkbox"
+        android:title="Presente" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="congiuntivo_passato_checkbox"
+        android:title="Passato" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="congiuntivo_imperfetto_checkbox"
+        android:title="Imperfetto" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="congiuntivo_trapassato_checkbox"
+        android:title="Trapassato" />
+    
+
+</PreferenceScreen>

@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     >
+
+    
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_presente_checkbox"
+        android:title="Presente" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_passato_prossimo_checkbox"
+        android:title="Passato Prossimo" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_imperfetto_checkbox"
+        android:title="Imperfetto" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_trapassato_prossimo_checkbox"
+        android:title="Trapassato Prossimo" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_passato_remoto_checkbox"
+        android:title="Passato Remoto" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_trapassato_remoto_checkbox"
+        android:title="Trapassato Remoto" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_futuro_semplice_checkbox"
+        android:title="Futuro Semplice" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="indicativo_futuro_anteriore_checkbox"
+        android:title="Futuro Anteriore" />
+
+</PreferenceScreen>

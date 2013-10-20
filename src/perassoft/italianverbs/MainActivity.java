@@ -1,6 +1,5 @@
 package perassoft.italianverbs;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +7,6 @@ import java.util.Locale;
 import java.util.Random;
 
 import perassoft.italianverbs.R.string;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -55,7 +53,6 @@ public class MainActivity extends Activity implements OnInitListener,
 	private TextToSpeech tts;
 	private Random random;
 	private int score = 0;
-	private Verbs verbs;
 	private boolean restoredFromInstanceState;
 	private String[] messages;
 	private Verb verb;
@@ -98,12 +95,11 @@ public class MainActivity extends Activity implements OnInitListener,
 		random = new Random(System.currentTimeMillis());
 		messages = getResources().getStringArray(R.array.joke_messages);
 
-		verbs = new Verbs();
 		if (savedInstanceState != null) {
 			score = savedInstanceState.getInt(SCORE, 0);
 			verbIndex = savedInstanceState.getInt(VERBINDEX);
 			question = savedInstanceState.getInt(QUESTION);
-			verb = verbs.get(verbIndex);
+			verb = Verbs.Instance.get(verbIndex);
 			restoredFromInstanceState = true;
 			setQuestionText();
 		} else {
@@ -132,7 +128,7 @@ public class MainActivity extends Activity implements OnInitListener,
 		mSpeakButton.setAnimation(mAnimation);
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
-		
+
 	}
 
 	private String getRandomMessage() {
@@ -266,6 +262,7 @@ public class MainActivity extends Activity implements OnInitListener,
 		} else if (requestCode == RESULT_SETTINGS) {
 
 			generateQuestion();
+
 		} else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE) {
 			if (resultCode == RESULT_OK) {
 				// Fill the list view with the strings the recognizer thought it
@@ -286,9 +283,9 @@ public class MainActivity extends Activity implements OnInitListener,
 				}
 				message(getString(R.string.wrong), ASK, getCurrentLocale(),
 						true);
-				score-=2;
+				score -= 2;
 				updateScoreView();
-			} 
+			}
 		}
 	}
 
@@ -341,9 +338,13 @@ public class MainActivity extends Activity implements OnInitListener,
 	}
 
 	private void generateQuestion() {
-		verbIndex = random.nextInt(verbs.size());
-		verb = verbs.get(verbIndex);
-		question = random.nextInt(verb.size());
+		
+		verbIndex = random.nextInt(Verbs.Instance.size());
+		verb = Verbs.Instance.get(verbIndex);
+
+		question = random.nextInt(Verb.getVisibleVerbs());
+		while (!Verb.isVisible(question))
+			question++;
 		setQuestionText();
 		String description = verb.getDescription(question);
 		message(description, ASK, getCurrentJokeMessageLocale(), false);
@@ -440,7 +441,6 @@ public class MainActivity extends Activity implements OnInitListener,
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 		if (utteranceId.equals(QUESTION_NEEDED))
 			generateQuestion();
-		
 
 	}
 
@@ -456,14 +456,16 @@ public class MainActivity extends Activity implements OnInitListener,
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonSpeak) {
 			if (verb != null)
-			startVoiceRecognitionActivity(verb.getDescription(question));
+				startVoiceRecognitionActivity(verb.getDescription(question));
 		}
 		if (v.getId() == R.id.buttonHelp) {
-			if (verb != null)
-				message(verb.get(question), NEUTRAL, getCurrentJokeMessageLocale(),
-								true);
-			score-=2;
-			updateScoreView();
+			if (verb != null) {
+				message(verb.get(question), NEUTRAL,
+						getCurrentJokeMessageLocale(), true);
+				score -= 2;
+				updateScoreView();
+				generateQuestion();
+			}
 		}
 
 	}

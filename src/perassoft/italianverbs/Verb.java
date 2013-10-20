@@ -2,8 +2,13 @@ package perassoft.italianverbs;
 
 import java.util.ArrayList;
 
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
+
 public class Verb extends ArrayList<String> {
 
+	public static final int MAX_VERBS = 95;
 	private static final String TERZA_PERSONA_PLURALE = "terza persona plurale";
 	private static final String SECONDA_PERSONA_PLURALE = "seconda persona plurale";
 	private static final String PRIMA_PERSONA_PLURALE = "prima persona plurale";
@@ -15,7 +20,7 @@ public class Verb extends ArrayList<String> {
 	private static final String FUTURO_SEMPLICE = "futuro semplice";
 	private static final String FUTURO_ANTERIORE = "futuro anteriore";
 	private static final String PASSATO = "passato";
-	private static final String PASSATO_REMOTO = "passato Remoto";
+	private static final String PASSATO_REMOTO = "passato remoto";
 	private static final String TRAPASSATO_PROSSIMO = "trapassato prossimo";
 	private static final String IMPERFETTO = "imperfetto";
 	private static final String PASSATO_PROSSIMO = "passato prossimo";
@@ -31,6 +36,8 @@ public class Verb extends ArrayList<String> {
 	 * 
 	 */
 	private static final long serialVersionUID = -4709228867823054044L;
+	private static int visibleVerbs = countVisibleVerbs();
+
 	private String name;
 
 	public Verb(String name) {
@@ -103,6 +110,53 @@ public class Verb extends ArrayList<String> {
 		return null;
 	}
 
+	static String getSettingTempo(int i) {
+		if (i < 6)
+			return "indicativo_presente_checkbox";
+		if (i < 12)
+			return "indicativo_passato_prossimo_checkbox";
+		if (i < 18)
+			return "indicativo_imperfetto_checkbox";
+		if (i < 24)
+			return "indicativo_trapassato_prossimo_checkbox";
+		if (i < 30)
+			return "indicativo_passato_remoto_checkbox";
+		if (i < 36)
+			return "indicativo_trapassato_remoto_checkbox";
+		if (i < 42)
+			return "indicativo_futuro_semplice_checkbox";
+		if (i < 48)
+			return "indicativo_futuro_anteriore_checkbox";
+		if (i < 54)
+			return "condizionale_presente_checkbox";
+		if (i < 60)
+			return "condizionale_passato_checkbox";
+		if (i < 66)
+			return "congiuntivo_presente_checkbox";
+		if (i < 72)
+			return "congiuntivo_passato_checkbox";
+		if (i < 78)
+			return "congiuntivo_imperfetto_checkbox";
+		if (i < 84)
+			return "congiuntivo_trapassato_checkbox";
+		if (i < 89)
+			return "imperativo_presente_checkbox";
+		if (i < 90)
+			return "infinito_presente_checkbox";
+		if (i < 91)
+			return "infinito_passato_checkbox";
+		if (i < 92)
+			return "participio_presente_checkbox";
+		if (i < 93)
+			return "participio_passato_checkbox";
+		if (i < 94)
+			return "gerundio_presente_checkbox";
+		if (i < 95)
+			return "gerundio_passato_checkbox";
+		assert (false);
+		return null;
+	}
+
 	String getPersona(int i) {
 		if (i < 84) {
 			int i1 = i % 6;
@@ -155,4 +209,39 @@ public class Verb extends ArrayList<String> {
 		return sb.toString();
 	}
 
+	public static boolean isVisible(int verbIndex) {
+		SharedPreferences sharedPrefs = PreferenceManager
+				.getDefaultSharedPreferences(MyApplication.getInstance());
+		return (sharedPrefs.getBoolean(getSettingTempo(verbIndex), true));
+	}
+
+	public static int getVisibleVerbs() {
+		return visibleVerbs;
+	}
+
+	public static boolean adjustVisibleVerbs(Preference preference,
+			Object newValue) {
+		int newVal = visibleVerbs;
+		for (int i = 0; i < MAX_VERBS; i++)
+			if (preference.getKey().equals(getSettingTempo(i))) {
+				if (Boolean.TRUE.equals(newValue))
+					newVal++;
+				else
+					newVal--;
+			}
+		if (newVal > 0)
+		{
+			visibleVerbs = newVal;
+			return true;
+		}
+		return false;
+	}
+
+	public static int countVisibleVerbs() {
+		visibleVerbs = 0;
+		for (int i = 0; i < MAX_VERBS; i++)
+			if (isVisible(i))
+				visibleVerbs++;
+		return visibleVerbs;
+	}
 }

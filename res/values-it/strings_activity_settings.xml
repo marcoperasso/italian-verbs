@@ -7,34 +7,6 @@
 
     <!-- Example General settings -->
     <string name="pref_header_general">Generale</string>
-   
-    <string-array name="pref_answer_number">
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-    </string-array>
-    <string-array name="pref_answer_descri">
-        <item>tre</item>
-        <item>quattro</item>
-        <item>cinque</item>
-        <item>sei</item>
-        <item>sette</item>
-        <item>otto</item>
-    </string-array>
-        <string name="answor_number">Numero di risposte</string>
-        <string name="select_answer_number">Seleziona il numero di risposte</string>
-        <string name="tabellina_dell_apos_uno">Tabellina dell\'uno</string>
-        <string name="tabellina_del_due">Tabellina del due</string>
-        <string name="tabellina_del_tre">Tabellina del tre</string>
-        <string name="tabellina_del_quattro">Tabellina del quattro</string>
-        <string name="tabellina_del_cinque">Tabellina del cinque</string>
-        <string name="tabellina_del_sei">Tabellina del sei</string>
-        <string name="tabellina_del_sette">Tabellina del sette</string>
-        <string name="tabellina_dell_apos_otto">Tabellina dell\'otto</string>
-        <string name="tabellina_del_nove">Tabellina del nove</string>
-        <string name="tabellina_del_dieci">Tabellina del dieci</string>
-        <string name="settings_title">Imposta qui il livello di difficoltà</string>
+
+        <string name="settings_title">Impostazioni</string>
 </resources>

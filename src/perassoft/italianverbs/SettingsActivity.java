@@ -1,18 +1,24 @@
 package perassoft.italianverbs;
 
-import java.util.List;
-
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.RingtonePreference;
+import android.text.TextUtils;
+
+import java.util.List;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -33,6 +39,12 @@ public class SettingsActivity extends PreferenceActivity {
 	 * shown on tablets.
 	 */
 	private static final boolean ALWAYS_SIMPLE_PREFS = false;
+	private OnPreferenceChangeListener onPreferenceChangeListener = new OnPreferenceChangeListener(){
+
+		@Override
+		public boolean onPreferenceChange(Preference preference, Object newValue) {
+			return Verb.adjustVisibleVerbs(preference, newValue);
+		}};
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
@@ -57,8 +69,50 @@ public class SettingsActivity extends PreferenceActivity {
 		// Add 'general' preferences.
 		addPreferencesFromResource(R.xml.pref_general);
 
-		
+		// Add 'notifications' preferences, and a corresponding header.
+		PreferenceCategory fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Indicativo");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_indicativo);
+		// Add 'notifications' preferences, and a corresponding header.
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Congiuntivo");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_congiuntivo);
 
+		// Add 'data and sync' preferences, and a corresponding header.
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Condizionale");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_condizionale);
+
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Imperativo");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_imperativo);
+
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Infinito");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_infinito);
+
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Participio");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_participio);
+
+		fakeHeader = new PreferenceCategory(this);
+		fakeHeader.setTitle("Gerundio");
+		getPreferenceScreen().addPreference(fakeHeader);
+		addPreferencesFromResource(R.xml.pref_gerundio);
+		for (int i = 0; i < Verb.MAX_VERBS; i++)
+			findPreference(Verb.getSettingTempo(i)).setOnPreferenceChangeListener(onPreferenceChangeListener );
+	}
+	@Override
+	protected void onDestroy() {
+		//for (int i = 0; i < Verb.MAX_VERBS; i++)
+		//	findPreference(Verb.getSettingTempo(i)). restoreHierarchyState(container)setOnPreferenceChangeListener(onPreferenceChangeListener );
+		super.onDestroy();
 	}
 
 	/** {@inheritDoc} */
@@ -75,6 +129,8 @@ public class SettingsActivity extends PreferenceActivity {
 		return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
 	}
 
+	
+
 	/**
 	 * Determines whether the simplified settings UI should be shown. This is
 	 * true if this is forced via {@link #ALWAYS_SIMPLE_PREFS}, or the device
@@ -83,9 +139,7 @@ public class SettingsActivity extends PreferenceActivity {
 	 * "simplified" settings UI should be shown.
 	 */
 	private static boolean isSimplePreferences(Context context) {
-		return ALWAYS_SIMPLE_PREFS
-				|| Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-				|| !isXLargeTablet(context);
+		return true;
 	}
 
 	/** {@inheritDoc} */
@@ -113,11 +167,34 @@ public class SettingsActivity extends PreferenceActivity {
 				int index = listPreference.findIndexOfValue(stringValue);
 
 				// Set the summary to reflect the new value.
-				preference.setSummary(index >= 0
-						? listPreference.getEntries()[index]
-						: null);
+				preference
+						.setSummary(index >= 0 ? listPreference.getEntries()[index]
+								: null);
 
-			}  else {
+			} else if (preference instanceof RingtonePreference) {
+				// For ringtone preferences, look up the correct display value
+				// using RingtoneManager.
+				if (TextUtils.isEmpty(stringValue)) {
+					// Empty values correspond to 'silent' (no ringtone).
+					preference.setSummary(R.string.pref_ringtone_silent);
+
+				} else {
+					Ringtone ringtone = RingtoneManager.getRingtone(
+							preference.getContext(), Uri.parse(stringValue));
+
+					if (ringtone == null) {
+						// Clear the summary if there was a lookup error.
+						preference.setSummary(null);
+					} else {
+						// Set the summary to reflect the new ringtone display
+						// name.
+						String name = ringtone
+								.getTitle(preference.getContext());
+						preference.setSummary(name);
+					}
+				}
+
+			} else {
 				// For all other preferences, set the summary to the value's
 				// simple string representation.
 				preference.setSummary(stringValue);
@@ -160,8 +237,13 @@ public class SettingsActivity extends PreferenceActivity {
 			super.onCreate(savedInstanceState);
 			addPreferencesFromResource(R.xml.pref_general);
 
+			// Bind the summaries of EditText/List/Dialog/Ringtone preferences
+			// to their values. When their values change, their summaries are
+			// updated to reflect the new value, per the Android Design
+			// guidelines.
+			bindPreferenceSummaryToValue(findPreference("example_text"));
+			bindPreferenceSummaryToValue(findPreference("example_list"));
 		}
 	}
 
-	
 }

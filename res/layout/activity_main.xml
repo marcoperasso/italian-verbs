@@ -18,7 +18,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
         android:background="@android:color/white"
-        android:text="dummy"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -28,13 +27,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/microphone" />
- <Button
+
+    <Button
         android:id="@+id/buttonHelp"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/help" />
+
     <TextView
         android:id="@+id/textViewQuestion"
         android:layout_width="wrap_content"
@@ -43,8 +44,9 @@
         android:layout_alignParentLeft="true"
         android:background="@drawable/balloon"
         android:gravity="center"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
         android:paddingTop="10dp"
-         android:text="dummy"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

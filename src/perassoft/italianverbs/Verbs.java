@@ -2,18 +2,21 @@ package perassoft.italianverbs;
 
 import java.util.ArrayList;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 public class Verbs extends ArrayList<Verb>{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3464198266953132774L;
-
+	public static Verbs Instance = new Verbs();
 	public Verbs() {
 		loadVerbs();
 	}
 
 	private void loadVerbs() {
-		Verb verb = new Verb("Essere");
+		Verb verb = new Verb("essere");
 		verb.add("io sono");
 		verb.add("tu sei");
 		verb.add("egli è");
@@ -131,4 +134,6 @@ public class Verbs extends ArrayList<Verb>{
 		add(verb);
 
 	}
+
+	
 }
