@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Italian Verbs</string>
+    <string name="action_settings">Settings</string>
+    <string name="wrong">WRONG!</string>
+    <string name="score">Score: %d</string>
+    <string name="language_not_supported">Language non supported</string>
+    <string name="tts_initilization_failed">Failed to initialize the speak engine</string>
+    <string name="right">Right!</string>
+    <string name="need_tts_components">This app needs installation of the speech engine components for the following languages: \'%s\'. At the end of the installation please restart the application.</string>
+    <string name="need_voice_recognition_components">This app needs installation of voice recognition components. At the end of the installation please restart the application.</string>
+    <string name="speech_locale">en</string>
+    <string name="welcome_message">Hello, I\'m miss Puzzy, your crazy teacher of italian. Do you want to study with me?</string>
+    <string name="about_msg">This app was written by &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; for his sons. Enjoy it!</string>
+    <string name="action_information">Information</string>
+    <string name="speech_joke_message_locale">it-IT</string>
+
+</resources>

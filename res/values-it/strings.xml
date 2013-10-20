@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Verbi Italiani</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="wrong">SBAGLIATO!</string>
+    <string name="score">Punteggio: %d</string>
+    <string name="language_not_supported">Lingua non supportata</string>
+    <string name="tts_initilization_failed">Fallita inizializzazione del motore vocale</string>
+    <string name="right">Giusto!</string>
+    <string name="need_tts_components">Per utilizzare questa applicazione è necessario installare i componenti per la sintesi vocale delle lingue: \'%s\'. Terminata l\'installazione dei componenti per favore riavvia l\'applicazione.</string>
+    <string name="need_voice_recognition_components">Per utilizzare questa applicazione è necessario installare i componenti di riconoscimento vocale. Terminata l\'installazione dei componenti per favore riavvia l\'applicazione.</string>
+    <string name="speech_locale">it-IT</string>
+    <string name="welcome_message">Ciao, sono miss Puzzy, la tua maestra di italiano un po\' sciroccata. Vuoi sudiare con me?</string>
+    <string name="about_msg">Questa applicazione è stata scritta da &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; per i propri figli. Mi raccomando, fanne buon uso!</string>
+    <string name="action_information">Informazioni</string>
+</resources>

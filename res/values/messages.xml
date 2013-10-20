@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <string-array name="joke_messages">
+        <item>Per mille corbezzoli, allora sei proprio in gamba!</item>
+		<item>Che mi venga un tic al naso, complimenti!</item>
+		<item>Per tutte le ciabatte puzzolenti, ottimo lavoro!</item>
+		<item>Per mille puzzole con la diarrea!</item>
+		<item>Corpo di una balena putrefatta!</item>		
+		<item>Mi venisse un attacco di flatulenza cronica!</item>
+		<item>Che mi possano vomitare nel cestino della merenda!</item>
+		<item>Per tutti i piccioni del cornicione!</item>
+		<item>Per mille caccole del naso di Brontolo!</item>
+		<item>Mi crescessero i baffi viola se questa non è un\'ottima risposta!</item>
+		<item>Che possa rimanere tre ore sul gabinetto se la risposta non è giusta!</item>
+		<item>Che possa cadere nel gabinetto!</item>
+		<item>Per mille scovolini del bagno intasato!</item>
+		<item>Per tutte le tonellate di cerume! Grande risposta!</item>
+		<item>Mi venisse un attacco di scoreggine!</item>
+		<item>Cadessi in questo momento dentro ad una fogna!</item>
+		<item>Per mille bruchi ingessati!</item>
+		<item>Per mille galline stitiche!</item>
+		<item>Risposta degna di una vecchia volpe!</item>
+		<item>Vecchia tarantola, dammi il cinque!</item>
+		<item>Corpo di un cinghiale con l\'artrite, sei grande!</item>
+		<item>Fulmini e cipollette! Giusto!</item>
+		<item>Radicchio imbalsamato con frittura di cammello! Esatto!</item>
+		<item>Corpo di un mammut infreddolito! Risposta esatta!</item>
+		<item>Per mille pidocchi pelati! Vero!</item>
+		<item>Che puzza di bambino rancido!</item>
+		<item>Per tutte le cacchette di topo!</item>
+		<item>Per mille puzzette svolazzanti!</item>
+    </string-array>
+</resources>

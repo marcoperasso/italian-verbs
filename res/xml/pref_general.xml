@@ -1,0 +1,52 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title" >
+
+    <ListPreference
+        android:entries="@array/pref_answer_descri"
+        android:entryValues="@array/pref_answer_number"
+        android:key="answer_number"
+        android:defaultValue="4"
+        android:title="@string/answor_number" android:dialogTitle="@string/select_answer_number"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="1_checkbox"
+        android:title="@string/tabellina_dell_apos_uno" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="2_checkbox"
+        android:title="@string/tabellina_del_due" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="3_checkbox"
+        android:title="@string/tabellina_del_tre" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="4_checkbox"
+        android:title="@string/tabellina_del_quattro" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="5_checkbox"
+        android:title="@string/tabellina_del_cinque" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="6_checkbox"
+        android:title="@string/tabellina_del_sei" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="7_checkbox"
+        android:title="@string/tabellina_del_sette" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="8_checkbox"
+        android:title="@string/tabellina_dell_apos_otto" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="9_checkbox"
+        android:title="@string/tabellina_del_nove" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="10_checkbox"
+        android:title="@string/tabellina_del_dieci" />
+
+</PreferenceScreen>
