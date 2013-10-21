@@ -99,7 +99,7 @@ public class MainActivity extends Activity implements OnInitListener,
 			score = savedInstanceState.getInt(SCORE, 0);
 			verbIndex = savedInstanceState.getInt(VERBINDEX);
 			question = savedInstanceState.getInt(QUESTION);
-			verb = Verbs.Instance.get(verbIndex);
+			verb = MyApplication.getInstance().getVerbs().get(verbIndex);
 			restoredFromInstanceState = true;
 			setQuestionText();
 		} else {
@@ -339,12 +339,19 @@ public class MainActivity extends Activity implements OnInitListener,
 
 	private void generateQuestion() {
 		
-		verbIndex = random.nextInt(Verbs.Instance.size());
-		verb = Verbs.Instance.get(verbIndex);
-
+		Verbs verbs = MyApplication.getInstance().getVerbs();
+		verbIndex = random.nextInt(verbs.size());
+		verb = verbs.get(verbIndex);
 		question = random.nextInt(Verb.getVisibleVerbs());
 		while (!Verb.isVisible(question))
 			question++;
+		
+		String s = verb.get(question);
+		if (s.equals("-"))
+		{
+			generateQuestion();
+			return;
+		}
 		setQuestionText();
 		String description = verb.getDescription(question);
 		message(description, ASK, getCurrentJokeMessageLocale(), false);

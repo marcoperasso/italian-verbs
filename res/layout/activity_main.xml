@@ -44,8 +44,8 @@
         android:layout_alignParentLeft="true"
         android:background="@drawable/balloon"
         android:gravity="center"
-        android:paddingLeft="1dp"
-        android:paddingRight="1dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
         android:paddingTop="10dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
