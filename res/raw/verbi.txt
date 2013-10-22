@@ -1,1344 +1,191 @@
-ADOREZZARE
--
--
-adorezza
--
--
--
--
--
-ha adorezzato
--
--
--
--
--
-adorezzava
--
--
--
--
--
-aveva adorezzato
--
--
--
--
--
-adorezzò
--
--
--
--
--
-ebbe adorezzato
--
--
--
--
--
-adorezzerà
--
--
--
--
--
-avrà adorezzato
--
--
--
--
--
-adorezzerebbe
--
--
--
--
--
-avrebbe adorezzato
--
--
--
--
--
-che adorezzi
--
--
--
--
--
-che abbia adorezzato
--
--
--
--
--
-che adorezzasse
--
--
--
--
--
-che avesse adorezzato
--
--
--
--
-adorezzi
--
--
--
-adorezzare
-avere adorezzato
-adorezzante
-adorezzato
-adorezzando
-avendo adorezzato
-BISOGNARE
--
--
-bisogna
--
--
--
--
--
-è bisognato
--
--
--
--
--
-bisognava
--
--
--
--
--
-era bisognato
--
--
--
--
--
-bisognò
--
--
--
--
--
-fu bisognato
--
--
--
--
--
-bisognerà
--
--
--
--
--
-sarà bisognato
--
--
--
--
--
-bisognerebbe
--
--
--
--
--
-sarebbe bisognato
--
--
--
--
--
-che bisogni
--
--
--
--
--
-che sia bisognato
--
--
--
--
--
-che bisognasse
--
--
--
--
--
-che fosse bisognato
--
--
--
--
-bisogni
--
--
--
-bisognare
-essere bisognato
-bisognante
-bisognato
-bisognando
-essendo bisognato
-NEVISCHIARE
--
--
-nevischia
--
--
--
--
--
-ha nevischiato
--
--
--
--
--
-nevischiava
--
--
--
--
--
-aveva nevischiato
--
--
--
--
--
-nevischiò
--
--
--
--
--
-ebbe nevischiato
--
--
--
--
--
-nevischierà
--
--
--
--
--
-avrà nevischiato
--
--
--
--
--
-nevischierebbe
--
--
--
--
--
-avrebbe nevischiato
--
--
--
--
--
-che nevischi
--
--
--
--
--
-che abbia nevischiato
--
--
--
--
--
-che nevischiasse
--
--
--
--
--
-che avesse nevischiato
--
--
--
--
-nevischi
--
--
--
-nevischiare
-avere nevischiato
-nevischiante
-nevischiato
-nevischiando
-avendo nevischiato
-NOTTARE
--
--
-notta
--
--
--
--
--
-è nottato
--
--
--
--
--
-nottava
--
--
--
--
--
-era nottato
--
--
--
--
--
-nottò
--
--
--
--
--
-fu nottato
--
--
--
--
--
-notterà
--
--
--
--
--
-sarà nottato
--
--
--
--
--
-notterebbe
--
--
--
--
--
-sarebbe nottato
--
--
--
--
--
-che notti
--
--
--
--
--
-che sia nottato
--
--
--
--
--
-che nottasse
--
--
--
--
--
-che fosse nottato
--
--
--
--
-notti
--
--
--
-nottare
-essere nottato
-nottante
-nottato
-nottando
-essendo nottato
-PIOVICCICARE
--
--
-pioviccica
--
--
--
--
--
-ha pioviccicato
--
--
--
--
--
-pioviccicava
--
--
--
--
--
-aveva pioviccicato
--
--
--
--
--
-pioviccicò
--
--
--
--
--
-ebbe pioviccicato
--
--
--
--
--
-pioviccicherà
--
--
--
--
--
-avrà pioviccicato
--
--
--
--
--
-pioviccicherebbe
--
--
--
--
--
-avrebbe pioviccicato
--
--
--
--
--
-che pioviccichi
--
--
--
--
--
-che abbia pioviccicato
--
--
--
--
--
-che pioviccicasse
--
--
--
--
--
-che avesse pioviccicato
--
--
--
--
-pioviccichi
--
--
--
-pioviccicare
-avere pioviccicato
-pioviccicante
-pioviccicato
-pioviccicando
-avendo pioviccicato
-PIOVIGGINARE
--
--
-pioviggina
--
--
--
--
--
-ha piovigginato
--
--
--
--
--
-piovigginava
--
--
--
--
--
-aveva piovigginato
--
--
--
--
--
-piovigginò
--
--
--
--
--
-ebbe piovigginato
--
--
--
--
--
-piovigginerà
--
--
--
--
--
-avrà piovigginato
--
--
--
--
--
-piovigginerebbe
--
--
--
--
--
-avrebbe piovigginato
--
--
--
--
--
-che pioviggini
--
--
--
--
--
-che abbia piovigginato
--
--
--
--
--
-che piovigginasse
--
--
--
--
--
-che avesse piovigginato
--
--
--
--
-pioviggini
--
--
--
-piovigginare
-avere piovigginato
-piovigginante
-piovigginato
-piovigginando
-avendo piovigginato
-PIOVISCOLARE
--
--
-pioviscola
--
--
--
--
--
-ha pioviscolato
--
--
--
--
--
-pioviscolava
--
--
--
--
--
-aveva pioviscolato
--
--
--
--
--
-pioviscolò
--
--
--
--
--
-ebbe pioviscolato
--
--
--
--
--
-pioviscolerà
--
--
--
--
--
-avrà pioviscolato
--
--
--
--
--
-pioviscolerebbe
--
--
--
--
--
-avrebbe pioviscolato
--
--
--
--
--
-che pioviscoli
--
--
--
--
--
-che abbia pioviscolato
--
--
--
--
--
-che pioviscolasse
--
--
--
--
--
-che avesse pioviscolato
--
--
--
--
-pioviscoli
--
--
--
-pioviscolare
-avere pioviscolato
-pioviscolante
-pioviscolato
-pioviscolando
-avendo pioviscolato
-RAFFRESCARE
--
--
-raffresca
--
--
--
--
--
-ha raffrescato
--
--
--
--
--
-raffrescava
--
--
--
--
--
-aveva raffrescato
--
--
--
--
--
-raffrescò
--
--
--
--
--
-ebbe raffrescato
--
--
--
--
--
-raffrescherà
--
--
--
--
--
-avrà raffrescato
--
--
--
--
--
-raffrescherebbe
--
--
--
--
--
-avrebbe raffrescato
--
--
--
--
--
-che raffreschi
--
--
--
--
--
-che abbia raffrescato
--
--
--
--
--
-che raffrescasse
--
--
--
--
--
-che avesse raffrescato
--
--
--
--
-raffreschi
--
--
--
-raffrescare
-avere raffrescato
-raffrescante
-raffrescato
-raffrescando
-avendo raffrescato
-RANNUVOLARE
--
--
-rannuvola
--
--
--
--
--
-ha rannuvolato
--
--
--
--
--
-rannuvolava
--
--
--
--
--
-aveva rannuvolato
--
--
--
--
--
-rannuvolò
--
--
--
--
--
-ebbe rannuvolato
--
--
--
--
--
-rannuvolerà
--
--
--
--
--
-avrà rannuvolato
--
--
--
--
--
-rannuvolerebbe
--
--
--
--
--
-avrebbe rannuvolato
--
--
--
--
--
-che rannuvoli
--
--
--
--
--
-che abbia rannuvolato
--
--
--
--
--
-che rannuvolasse
--
--
--
--
--
-che avesse rannuvolato
--
--
--
--
-rannuvoli
--
--
--
-rannuvolare
-avere rannuvolato
-rannuvolante
-rannuvolato
-rannuvolando
-avendo rannuvolato
-RIANNUVOLARE
--
--
-riannuvola
--
--
--
--
--
-ha riannuvolato
--
--
--
--
--
-riannuvolava
--
--
--
--
--
-aveva riannuvolato
--
--
--
--
--
-riannuvolò
--
--
--
--
--
-ebbe riannuvolato
--
--
--
--
--
-riannuvolerà
--
--
--
--
--
-avrà riannuvolato
--
--
--
--
--
-riannuvolerebbe
--
--
--
--
--
-avrebbe riannuvolato
--
--
--
--
--
-che riannuvoli
--
--
--
--
--
-che abbia riannuvolato
--
--
--
--
--
-che riannuvolasse
--
--
--
--
--
-che avesse riannuvolato
--
--
--
--
-riannuvoli
--
--
--
-riannuvolare
-avere riannuvolato
-riannuvolante
-riannuvolato
-riannuvolando
-avendo riannuvolato
-RINEVICARE
--
--
-rinevica
--
--
--
--
--
-ha rinevicato
--
--
--
--
--
-rinevicava
--
--
--
--
--
-aveva rinevicato
--
--
--
--
--
-rinevicò
--
--
--
--
--
-ebbe rinevicato
--
--
--
--
--
-rinevicherà
--
--
--
--
--
-avrà rinevicato
--
--
--
--
--
-rinevicherebbe
--
--
--
--
--
-avrebbe rinevicato
--
--
--
--
--
-che rinevichi
--
--
--
--
--
-che abbia rinevicato
--
--
--
--
--
-che rinevicasse
--
--
--
--
--
-che avesse rinevicato
--
--
--
--
-rinevichi
--
--
--
-rinevicare
-avere rinevicato
-rinevicante
-rinevicato
-rinevicando
-avendo rinevicato
-VENTARE
--
--
-venta
--
--
--
--
--
-ha ventato
--
--
--
--
--
-ventava
--
--
--
--
--
-aveva ventato
--
--
--
--
--
-ventò
--
--
--
--
--
-ebbe ventato
--
--
--
--
--
-venterà
--
--
--
--
--
-avrà ventato
--
--
--
--
--
-venterebbe
--
--
--
--
--
-avrebbe ventato
--
--
--
--
--
-che venti
--
--
--
--
--
-che abbia ventato
--
--
--
--
--
-che ventasse
--
--
--
--
--
-che avesse ventato
--
--
--
--
-venti
--
--
--
-ventare
-avere ventato
-ventante
-ventato
-ventando
-avendo ventato
-VENTEGGIARE
--
--
-venteggia
--
--
--
--
--
-ha venteggiato
--
--
--
--
--
-venteggiava
--
--
--
--
--
-aveva venteggiato
--
--
--
--
--
-venteggiò
--
--
--
--
--
-ebbe venteggiato
--
--
--
--
--
-venteggerà
--
--
--
--
--
-avrà venteggiato
--
--
--
--
--
-venteggerebbe
--
--
--
--
--
-avrebbe venteggiato
--
--
--
--
--
-che venteggi
--
--
--
--
--
-che abbia venteggiato
--
--
--
--
--
-che venteggiasse
--
--
--
--
--
-che avesse venteggiato
--
--
--
--
-venteggi
--
--
--
-venteggiare
-avere venteggiato
-venteggiante
-venteggiato
-venteggiando
-avendo venteggiato
-VERNARE
--
--
-verna
--
--
--
--
--
-ha vernato
--
--
--
--
--
-vernava
--
--
--
--
--
-aveva vernato
--
--
--
--
--
-vernò
--
--
--
--
--
-ebbe vernato
--
--
--
--
--
-vernerà
--
--
--
--
--
-avrà vernato
--
--
--
--
--
-vernerebbe
--
--
--
--
--
-avrebbe vernato
--
--
--
--
--
-che verni
--
--
--
--
--
-che abbia vernato
--
--
--
--
--
-che vernasse
--
--
--
--
--
-che avesse vernato
--
--
--
--
-verni
--
--
--
-vernare
-avere vernato
-vernante
-vernato
-vernando
-avendo vernato
+ESSERE
+io sono
+tu sei
+egli �
+noi siamo
+voi siete
+essi sono
+io sono stato
+tu sei stato
+egli � stato
+noi siamo stati
+voi siete stati
+essi sono stati
+io ero
+tu eri
+egli era
+noi eravamo
+voi eravate
+essi erano
+io ero stato
+tu eri stato
+egli era stato
+noi eravamo stati
+voi eravate stati
+essi erano stati
+io fui
+tu fosti
+egli fu
+noi fummo
+voi foste
+essi furono
+io fui stato
+tu fosti stato
+egli fu stato
+noi fummo stati
+voi foste stati
+essi furono stati
+io sar�
+tu sarai
+egli sar�
+noi saremo
+voi sarete
+essi saranno
+io sar� stato
+tu sarai stato
+egli sar� stato
+noi saremo stati
+voi sarete stati
+essi saranno stati
+io sarei
+tu saresti
+egli sarebbe
+noi saremmo
+voi sareste
+essi sarebbero
+io sarei stato
+tu saresti stato
+egli sarebbe stato
+noi saremmo stati
+voi sareste stati
+essi sarebbero stati
+che io sia
+che tu sia
+che egli sia
+che noi siamo
+che voi siate
+che essi siano
+che io sia stato
+che tu sia stato
+che egli sia stato
+che noi siamo stati
+che voi siate stati
+che essi siano stati
+che io fossi
+che tu fossi
+che egli fosse
+che noi fossimo
+che voi foste
+che essi fossero
+che io fossi stato
+che tu fossi stato
+che egli fosse stato
+che noi fossimo stati
+che voi foste stati
+che essi fossero stati
+sii
+sia
+siamo
+siate
+siano
+essere
+essere stato
+ente
+stato
+essendo
+essendo stato
+io ho
+tu hai
+egli ha
+noi abbiamo
+voi avete
+essi hanno
+io ho avuto
+tu hai avuto
+egli ha avuto
+noi abbiamo avuto
+voi avete avuto
+essi hanno avuto
+io avevo
+tu avevi
+egli aveva
+noi avevamo
+voi avevate
+essi avevano
+io avevo avuto
+tu avevi avuto
+egli aveva avuto
+noi avevamo avuto
+voi avevate avuto
+essi avevano avuto
+io ebbi
+tu avesti
+egli ebbe
+noi avemmo
+voi aveste
+essi ebbero
+io ebbi avuto
+tu avesti avuto
+egli ebbe avuto
+noi avemmo avuto
+voi aveste avuto
+essi ebbero avuto
+io avr�
+tu avrai
+egli avr�
+noi avremo
+voi avrete
+essi avranno
+io avr� avuto
+tu avrai avuto
+egli avr� avuto
+noi avremo avuto
+voi avrete avuto
+essi avranno avuto
+io avrei
+tu avresti
+egli avrebbe
+noi avremmo
+voi avreste
+essi avrebbero
+io avrei avuto
+tu avresti avuto
+egli avrebbe avuto
+noi avremmo avuto
+voi avreste avuto
+essi avrebbero avuto
+che io abbia
+che tu abbia
+che egli abbia
+che noi abbiamo
+che voi abbiate
+che essi abbiano
+che io abbia avuto
+che tu abbia avuto
+che egli abbia avuto
+che noi abbiamo avuto
+che voi abbiate avuto
+che essi abbiano avuto
+che io avessi
+che tu avessi
+che egli avesse
+che noi avessimo
+che voi aveste
+che essi avessero
+che io avessi avuto
+che tu avessi avuto
+che egli avesse avuto
+che noi avessimo avuto
+che voi aveste avuto
+che essi avessero avuto
+abbi
+abbia
+abbiamo
+abbiate
+abbiano
+avere
+avere avuto
+avente
+avuto
+avendo
+avendo avuto
