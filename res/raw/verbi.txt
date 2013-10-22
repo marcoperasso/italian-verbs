@@ -94,6 +94,7 @@ ente
 stato
 essendo
 essendo stato
+AVERE
 io ho
 tu hai
 egli ha
@@ -189,3 +190,291 @@ avente
 avuto
 avendo
 avendo avuto
+PARLARE
+io parlo
+tu parli
+egli parla
+noi parliamo
+voi parlate
+essi parlano
+io ho parlato
+tu hai parlato
+egli ha parlato
+noi abbiamo parlato
+voi avete parlato
+essi hanno parlato
+io parlavo
+tu parlavi
+egli parlava
+noi parlavamo
+voi parlavate
+essi parlavano
+io avevo parlato
+tu avevi parlato
+egli aveva parlato
+noi avevamo parlato
+voi avevate parlato
+essi avevano parlato
+io parlai
+tu parlasti
+egli parlò
+noi parlammo
+voi parlaste
+essi parlarono
+io ebbi parlato
+tu avesti parlato
+egli ebbe parlato
+noi avemmo parlato
+voi aveste parlato
+essi ebbero parlato
+io parlerò
+tu parlerai
+egli parlerà
+noi parleremo
+voi parlerete
+essi parleranno
+io avrò parlato
+tu avrai parlato
+egli avrà parlato
+noi avremo parlato
+voi avrete parlato
+essi avranno parlato
+io parlerei
+tu parleresti
+egli parlerebbe
+noi parleremmo
+voi parlereste
+essi parlerebbero
+io avrei parlato
+tu avresti parlato
+egli avrebbe parlato
+noi avremmo parlato
+voi avreste parlato
+essi avrebbero parlato
+che io parli
+che tu parli
+che egli parli
+che noi parliamo
+che voi parliate
+che essi parlino
+che io abbia parlato
+che tu abbia parlato
+che egli abbia parlato
+che noi abbiamo parlato
+che voi abbiate parlato
+che essi abbiano parlato
+che io parlassi
+che tu parlassi
+che egli parlasse
+che noi parlassimo
+che voi parlaste
+che essi parlassero
+che io avessi parlato
+che tu avessi parlato
+che egli avesse parlato
+che noi avessimo parlato
+che voi aveste parlato
+che essi avessero parlato
+parla
+parli
+parliamo
+parlate
+parlino
+parlare
+avere parlato
+parlante
+parlato
+parlando
+avendo parlato
+CREDERE
+io credo
+tu credi
+egli crede
+noi crediamo
+voi credete
+essi credono
+io ho creduto
+tu hai creduto
+egli ha creduto
+noi abbiamo creduto
+voi avete creduto
+essi hanno creduto
+io credevo
+tu credevi
+egli credeva
+noi credevamo
+voi credevate
+essi credevano
+io avevo creduto
+tu avevi creduto
+egli aveva creduto
+noi avevamo creduto
+voi avevate creduto
+essi avevano creduto
+io credetti, credei
+tu credesti
+egli credette, credé
+noi credemmo
+voi credeste
+essi credettero, crederono
+io ebbi creduto
+tu avesti creduto
+egli ebbe creduto
+noi avemmo creduto
+voi aveste creduto
+essi ebbero creduto
+io crederò
+tu crederai
+egli crederà
+noi crederemo
+voi crederete
+essi crederanno
+io avrò creduto
+tu avrai creduto
+egli avrà creduto
+noi avremo creduto
+voi avrete creduto
+essi avranno creduto
+io crederei
+tu crederesti
+egli crederebbe
+noi crederemmo
+voi credereste
+essi crederebbero
+io avrei creduto
+tu avresti creduto
+egli avrebbe creduto
+noi avremmo creduto
+voi avreste creduto
+essi avrebbero creduto
+che io creda
+che tu creda
+che egli creda
+che noi crediamo
+che voi crediate
+che essi credano
+che io abbia creduto
+che tu abbia creduto
+che egli abbia creduto
+che noi abbiamo creduto
+che voi abbiate creduto
+che essi abbiano creduto
+che io credessi
+che tu credessi
+che egli credesse
+che noi credessimo
+che voi credeste
+che essi credessero
+che io avessi creduto
+che tu avessi creduto
+che egli avesse creduto
+che noi avessimo creduto
+che voi aveste creduto
+che essi avessero creduto
+credi
+creda
+crediamo
+credete
+credano
+credere
+avere creduto
+credente
+creduto
+credendo
+avendo creduto
+SENTIRE
+io sento
+tu senti
+egli sente
+noi sentiamo
+voi sentite
+essi sentono
+io ho sentito
+tu hai sentito
+egli ha sentito
+noi abbiamo sentito
+voi avete sentito
+essi hanno sentito
+io sentivo
+tu sentivi
+egli sentiva
+noi sentivamo
+voi sentivate
+essi sentivano
+io avevo sentito
+tu avevi sentito
+egli aveva sentito
+noi avevamo sentito
+voi avevate sentito
+essi avevano sentito
+io sentii
+tu sentisti
+egli sentì
+noi sentimmo
+voi sentiste
+essi sentirono
+io ebbi sentito
+tu avesti sentito
+egli ebbe sentito
+noi avemmo sentito
+voi aveste sentito
+essi ebbero sentito
+io sentirò
+tu sentirai
+egli sentirà
+noi sentiremo
+voi sentirete
+essi sentiranno
+io avrò sentito
+tu avrai sentito
+egli avrà sentito
+noi avremo sentito
+voi avrete sentito
+essi avranno sentito
+io sentirei
+tu sentiresti
+egli sentirebbe
+noi sentiremmo
+voi sentireste
+essi sentirebbero
+io avrei sentito
+tu avresti sentito
+egli avrebbe sentito
+noi avremmo sentito
+voi avreste sentito
+essi avrebbero sentito
+che io senta
+che tu senta
+che egli senta
+che noi sentiamo
+che voi sentiate
+che essi sentano
+che io abbia sentito
+che tu abbia sentito
+che egli abbia sentito
+che noi abbiamo sentito
+che voi abbiate sentito
+che essi abbiano sentito
+che io sentissi
+che tu sentissi
+che egli sentisse
+che noi sentissimo
+che voi sentiste
+che essi sentissero
+che io avessi sentito
+che tu avessi sentito
+che egli avesse sentito
+che noi avessimo sentito
+che voi aveste sentito
+che essi avessero sentito
+senti
+senta
+sentiamo
+sentite
+sentano
+sentire
+avere sentito
+sentente, senziente
+sentito
+sentendo
+avendo sentito
