@@ -8,21 +8,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".VerbsActivity" >
 
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_gravity="center_horizontal"
-        android:text="@string/add_verbs" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_verbs" />
+
+       
+
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_original_verbs" />
+
+    </LinearLayout>
    <ListView
        android:id="@+id/list_verbs"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:background="@android:color/transparent"
        android:choiceMode="multipleChoice"
-       android:clickable="true"
-       android:longClickable="true" />
+       android:clickable="true" />
 
    
 

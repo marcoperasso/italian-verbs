@@ -13,24 +13,32 @@ import android.app.Application;
 import android.content.Context;
 
 public class MyApplication extends Application {
-	
+
 	private static MyApplication application;
 	private Verbs verbs;
 	private boolean verbsLoaded;
+
 	@Override
 	public void onCreate() {
 		MyApplication.application = this;
-		new Thread(new Runnable(){
+		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				getVerbs();
-			}}).start();
+			}
+		}).start();
 		super.onCreate();
 	}
-	
+
 	public static MyApplication getInstance() {
 		return application;
+	}
+
+	public void resetVerbs() {
+		synchronized (this) {
+			verbsLoaded = false;
+		}
 	}
 
 	public Verbs getVerbs() {
@@ -45,7 +53,7 @@ public class MyApplication extends Application {
 		}
 		return verbs;
 	}
-	
+
 	public void saveObject(File file, Object obj) throws IOException {
 		FileOutputStream fos = new FileOutputStream(file);
 		ObjectOutput out = null;
@@ -57,7 +65,7 @@ public class MyApplication extends Application {
 			out.close();
 			fos.close();
 		}
-		
+
 	}
 
 	public Object readObject(File file) {
@@ -70,16 +78,16 @@ public class MyApplication extends Application {
 					try {
 						return in.readObject();
 					} catch (Exception ex) {
-						
+
 					}
 				} catch (Exception e) {
-					
+
 				} finally {
 					in.close();
 					fis.close();
 				}
 			} catch (Exception e) {
-				
+
 			}
 
 		}

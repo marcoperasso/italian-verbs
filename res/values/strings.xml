@@ -22,5 +22,6 @@
     <string name="are_you_sure_to_delete_verb">Are you sure to delete verb %s?</string>
     <string name="choose_verbs">Choose verbs</string>
     <string name="not_available_yet">Not available yet</string>
+    <string name="reset_original_verbs">Reset original verbs</string>
 
 </resources>

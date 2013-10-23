@@ -12,7 +12,8 @@ import java.util.Set;
 import android.content.SharedPreferences;
 
 public class Verbs extends ArrayList<Verb> {
-	private static final String VISIBLE_VERBS = "VISIBLE_VERBS";
+	private static final String HIDDEN_VERBS = "VISIBLE_VERBS";
+	private static final String VERBS = "VERBS";
 	private static final String VERBI_BIN = "Verbi.bin";
 	/**
 	 * 
@@ -21,7 +22,7 @@ public class Verbs extends ArrayList<Verb> {
 	private int visibleVerbs;
 
 	private Verbs() {
-		
+
 	}
 
 	private static Verbs loadFromResource() {
@@ -57,7 +58,7 @@ public class Verbs extends ArrayList<Verb> {
 			Verbs verbs = loadFromResource();
 			try {
 				MyApplication.getInstance().saveObject(file, verbs);
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -78,20 +79,48 @@ public class Verbs extends ArrayList<Verb> {
 		remove(verb);
 		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
 		MyApplication.getInstance().saveObject(file, this);
+		countVisibleVerbs();
 	}
 
-	public static void setHiddenVerb(Verb v, boolean b) {
-		SharedPreferences settings = MyApplication.getInstance().getSharedPreferences(VISIBLE_VERBS, 0);
+	public void setHiddenVerb(Verb v, boolean b) {
+		SharedPreferences settings = MyApplication.getInstance()
+				.getSharedPreferences(VERBS, 0);
+		String verbs = settings.getString(HIDDEN_VERBS, "");
+		ArrayList<String> vv = new ArrayList<String>();
+		for (String s : verbs.split(","))
+			vv.add(s);
+		if (b) {
+			if (!vv.contains(v.getName()))
+			{
+				vv.add(v.getName());
+			}
+		} else {
+			if (vv.contains(v.getName()))
+			{
+				vv.remove(v.getName());
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		for (String s: vv)
+		{
+			if (sb.length() > 0)
+				sb.append(',');
+			sb.append(s);
+		}
 		SharedPreferences.Editor editor = settings.edit();
-		editor.putBoolean(VISIBLE_VERBS + v.getName(), b);
+		editor.putString(HIDDEN_VERBS, sb.toString());
 		editor.commit();
-		
+		countVisibleVerbs();
 	}
-	
 
 	public static boolean isHiddenVerb(Verb verb) {
-		SharedPreferences settings = MyApplication.getInstance().getSharedPreferences(VISIBLE_VERBS, 0);
-		return settings.getBoolean(VISIBLE_VERBS + verb.getName(), false);
+		SharedPreferences settings = MyApplication.getInstance()
+				.getSharedPreferences(VERBS, 0);
+		String verbs = settings.getString(HIDDEN_VERBS, "");
+		ArrayList<String> vv = new ArrayList<String>();
+		for (String s : verbs.split(","))
+			vv.add(s);
+		return vv.contains(verb.getName());
 	}
 
 	public int countVisibleVerbs() {
@@ -104,5 +133,18 @@ public class Verbs extends ArrayList<Verb> {
 
 	public int getVisibleVerbs() {
 		return visibleVerbs;
+	}
+
+	public static void restoreOriginal() {
+		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
+		if (file.exists())
+			file.delete();
+		SharedPreferences settings = MyApplication.getInstance()
+				.getSharedPreferences(VERBS, 0);
+		
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString(HIDDEN_VERBS, "");
+		editor.commit();
+		MyApplication.getInstance().resetVerbs();
 	}
 }

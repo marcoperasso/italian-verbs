@@ -46,7 +46,6 @@ public class MainActivity extends Activity implements OnInitListener,
 	private static final String QUESTION = "Q";
 	private static final String QUESTION_NEEDED = "1";
 	private static final String NEUTRAL = "2";
-	private static final String ASK = "3";
 	private static final int RESULT_SPEECH_CHECK_CODE = 0;
 	private static final int RESULT_SETTINGS = 1;
 	private static final int VOICE_RECOGNITION_REQUEST_CODE = 2;
@@ -262,7 +261,7 @@ public class MainActivity extends Activity implements OnInitListener,
 							getCurrentJokeMessageLocale(), true);
 					score++;
 				} else {
-					message(getString(R.string.wrong), ASK, getCurrentLocale(),
+					message(getString(R.string.wrong), NEUTRAL, getCurrentLocale(),
 							true);
 					score -= 2;
 				}
@@ -340,7 +339,7 @@ public class MainActivity extends Activity implements OnInitListener,
 		}
 		setQuestionText();
 		String description = verb.getDescription(question);
-		message(description, ASK, getCurrentJokeMessageLocale(), false);
+		message(description, NEUTRAL, getCurrentJokeMessageLocale(), false);
 
 	}
 

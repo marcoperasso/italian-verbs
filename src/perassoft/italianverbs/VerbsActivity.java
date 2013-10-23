@@ -35,18 +35,17 @@ public class VerbsActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_verbs);
 		setTitle(R.string.choose_verbs);
-		getVerbs();
 		populate();
 		findViewById(R.id.buttonAdd).setOnClickListener(this);
+		findViewById(R.id.buttonReset).setOnClickListener(this);
 	}
 
-	private void getVerbs() {
+	
+
+	private ListView populate() {
 		Verbs verbs = MyApplication.getInstance().getVerbs();
 		arVerbs = new Verb[verbs.size()];
 		verbs.toArray(arVerbs);
-	}
-
-	private ListView populate() {
 		final ListView lv = (ListView) findViewById(R.id.list_verbs);
 		ArrayAdapter<Verb> adapter = new ArrayAdapter<Verb>(this,
 				android.R.layout.simple_list_item_multiple_choice, arVerbs);
@@ -65,10 +64,11 @@ public class VerbsActivity extends Activity implements OnClickListener {
 				}
 
 				Verb v = (Verb) lv.getItemAtPosition(position);
-				Verbs.setHiddenVerb(v, !itemChecked);
-				MyApplication.getInstance().getVerbs().countVisibleVerbs();
+				MyApplication.getInstance().getVerbs().setHiddenVerb(v, !itemChecked);
+				
 			}
 		});
+		registerForContextMenu(lv);
 		for (int i = 0; i < arVerbs.length; i++)
 			lv.setItemChecked(i, !Verbs.isHiddenVerb(arVerbs[i]));
 		return lv;
@@ -78,6 +78,8 @@ public class VerbsActivity extends Activity implements OnClickListener {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		if (v.getId() == R.id.list_verbs) {
+			if (arVerbs.length == 1)
+				return;
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 			mActiveItem = arVerbs[info.position];
 			menu.setHeaderTitle(mActiveItem.toString());
@@ -90,6 +92,7 @@ public class VerbsActivity extends Activity implements OnClickListener {
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case menuDeleteLocal:
+			
 			Helper.dialogMessage(
 					this,
 					getString(R.string.are_you_sure_to_delete_verb,
@@ -117,7 +120,8 @@ public class VerbsActivity extends Activity implements OnClickListener {
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 			return;
 		}
-		getVerbs();
+		if (verbs.size() == 1)
+			verbs.setHiddenVerb(verbs.get(0), false);
 		populate();
 
 	}
@@ -137,7 +141,10 @@ public class VerbsActivity extends Activity implements OnClickListener {
 				startActivityForResult(intent, DOWNLOAD_VERB_RESULT);
 			}
 		}
-
+		else if (v.getId() == R.id.buttonReset) {
+			Verbs.restoreOriginal();
+			populate();
+		}
 	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
