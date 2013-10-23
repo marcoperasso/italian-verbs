@@ -12,15 +12,22 @@ public class TestVerbs extends TestCase {
 
 	public void testVerify() {
 		Verbs verbs = MyApplication.getInstance().getVerbs();
-		Verb verb = verbs.get("ESSERE");
+		testVerb(verbs, "ESSERE", "Egli è", 2);
+		testVerb(verbs, "sentire", "avendo sentito ", 94);
+		testVerb(verbs, "sentire", "avendo sentito ", 94);
+		testVerb(verbs, "sentire", " senziente ", 91);
+	}
+
+	private void testVerb(Verbs verbs, String sVerb, String voice, int i) {
+		Verb verb = verbs.get(sVerb);
 		if (verb == null)
 		{
 			Assert.assertTrue(false);
 			return;
 		}
 		ArrayList<String> answers = new ArrayList<String>();
-		answers.add("Egli è");
-		Assert.assertTrue("Match del verbo non corretto", verb.verify(2, answers));
+		answers.add(voice);
+		Assert.assertTrue("Match del verbo non corretto", verb.verify(i, answers));
 	}
 
 }

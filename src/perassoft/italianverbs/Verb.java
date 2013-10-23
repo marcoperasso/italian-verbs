@@ -249,6 +249,7 @@ public class Verb extends ArrayList<String> {
 		for (int i = 0; i < strings.length; i++)
 			strings[i] = strings[i].trim();
 		for (String match : answers) {
+			match = match.trim();
 			for (String string : strings) {
 				if (string.equalsIgnoreCase(match)) {
 					return true;
