@@ -81,15 +81,18 @@ public class MainActivity extends Activity implements OnInitListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		/*
-		 * PackageManager pm = getPackageManager(); Intent intent = new
-		 * Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); List<ResolveInfo>
-		 * activities = pm.queryIntentActivities(intent, 0); if
-		 * (activities.size() == 0) { startActivityForInstallVoiceRecognition();
-		 * finish(); return; } Intent checkIntent = new Intent();
-		 * checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		 * startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
-		 */
+		PackageManager pm = getPackageManager();
+		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+		List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
+		if (activities.size() == 0) {
+			startActivityForInstallVoiceRecognition();
+			finish();
+			return;
+		}
+		Intent checkIntent = new Intent();
+		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+		startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
+
 		random = new Random(System.currentTimeMillis());
 		messages = getResources().getStringArray(R.array.joke_messages);
 
