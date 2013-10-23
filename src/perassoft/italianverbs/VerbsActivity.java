@@ -1,10 +1,15 @@
 package perassoft.italianverbs;
 
 import java.io.IOException;
+import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.speech.RecognizerIntent;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +25,7 @@ import android.widget.Toast;
 
 public class VerbsActivity extends Activity implements OnClickListener {
 
+	private static final int DOWNLOAD_VERB_RESULT = 1;
 	private static final int menuDeleteLocal = 0;
 	private Verb[] arVerbs;
 	private Verb mActiveItem;
@@ -119,8 +125,32 @@ public class VerbsActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonAdd) {
-			Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
+			PackageManager pm = getPackageManager();
+			Intent intent = new Intent();
+			intent.setClassName("perassoft.italianverbsextension", "perassoft.italianverbsextension.VerbDownloaderActivity");
+			List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
+			if (activities.size() == 0) {
+				Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				startActivityForResult(intent, DOWNLOAD_VERB_RESULT);
+			}
 		}
 
+	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == DOWNLOAD_VERB_RESULT)
+		{
+			if (RESULT_OK == resultCode)
+			{
+				String string = data.getExtras().getString("VERB");
+				Toast.makeText(this, string, Toast.LENGTH_LONG).show();
+				
+			}
+			
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 }
