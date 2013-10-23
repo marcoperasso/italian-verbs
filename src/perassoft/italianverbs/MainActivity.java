@@ -269,22 +269,23 @@ public class MainActivity extends Activity implements OnInitListener,
 				// could have heard
 				ArrayList<String> matches = data
 						.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-				String string = verb.get(question);
-				for (String match : matches) {
-					if (match.equals(string)) {
-						message(match, NEUTRAL, getCurrentJokeMessageLocale(),
-								true);
-						message(getRandomMessage(), QUESTION_NEEDED,
-								getCurrentJokeMessageLocale(), true);
-						score++;
-						updateScoreView();
-						return;
-					}
+				boolean right = verb.verify(question, matches);
+				if (right)
+				{
+					message(verb.get(question), NEUTRAL,
+							getCurrentJokeMessageLocale(), true);
+					message(getRandomMessage(), QUESTION_NEEDED,
+							getCurrentJokeMessageLocale(), true);
+					score++;
 				}
-				message(getString(R.string.wrong), ASK, getCurrentLocale(),
-						true);
-				score -= 2;
+				else
+				{
+					message(getString(R.string.wrong), ASK, getCurrentLocale(),
+							true);
+					score -= 2;
+				}
 				updateScoreView();
+				
 			}
 		}
 	}
@@ -338,17 +339,16 @@ public class MainActivity extends Activity implements OnInitListener,
 	}
 
 	private void generateQuestion() {
-		
+
 		Verbs verbs = MyApplication.getInstance().getVerbs();
 		verbIndex = random.nextInt(verbs.size());
 		verb = verbs.get(verbIndex);
 		question = random.nextInt(Verb.getVisibleVerbs());
 		while (!Verb.isVisible(question))
 			question++;
-		
+
 		String s = verb.get(question);
-		if (s.equals("-"))
-		{
+		if (s.equals("-")) {
 			generateQuestion();
 			return;
 		}

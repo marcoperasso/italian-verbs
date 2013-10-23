@@ -229,8 +229,7 @@ public class Verb extends ArrayList<String> {
 				else
 					newVal--;
 			}
-		if (newVal > 0)
-		{
+		if (newVal > 0) {
 			visibleVerbs = newVal;
 			return true;
 		}
@@ -243,5 +242,19 @@ public class Verb extends ArrayList<String> {
 			if (isVisible(i))
 				visibleVerbs++;
 		return visibleVerbs;
+	}
+
+	public boolean verify(int question, ArrayList<String> answers) {
+		String[] strings = get(question).split("\\,");
+		for (int i = 0; i < strings.length; i++)
+			strings[i] = strings[i].trim();
+		for (String match : answers) {
+			for (String string : strings) {
+				if (string.equalsIgnoreCase(match)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

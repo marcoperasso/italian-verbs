@@ -1,13 +1,13 @@
 ESSERE
 io sono
 tu sei
-egli è
+egli Ã¨
 noi siamo
 voi siete
 essi sono
 io sono stato
 tu sei stato
-egli è stato
+egli Ã¨ stato
 noi siamo stati
 voi siete stati
 essi sono stati
@@ -35,15 +35,15 @@ egli fu stato
 noi fummo stati
 voi foste stati
 essi furono stati
-io sarò
+io sarÃ²
 tu sarai
-egli sarà
+egli sarÃ 
 noi saremo
 voi sarete
 essi saranno
-io sarò stato
+io sarÃ² stato
 tu sarai stato
-egli sarà stato
+egli sarÃ  stato
 noi saremo stati
 voi sarete stati
 essi saranno stati
@@ -131,15 +131,15 @@ egli ebbe avuto
 noi avemmo avuto
 voi aveste avuto
 essi ebbero avuto
-io avrò
+io avrÃ²
 tu avrai
-egli avrà
+egli avrÃ 
 noi avremo
 voi avrete
 essi avranno
-io avrò avuto
+io avrÃ² avuto
 tu avrai avuto
-egli avrà avuto
+egli avrÃ  avuto
 noi avremo avuto
 voi avrete avuto
 essi avranno avuto
@@ -217,7 +217,7 @@ voi avevate parlato
 essi avevano parlato
 io parlai
 tu parlasti
-egli parlò
+egli parlÃ²
 noi parlammo
 voi parlaste
 essi parlarono
@@ -227,15 +227,15 @@ egli ebbe parlato
 noi avemmo parlato
 voi aveste parlato
 essi ebbero parlato
-io parlerò
+io parlerÃ²
 tu parlerai
-egli parlerà
+egli parlerÃ 
 noi parleremo
 voi parlerete
 essi parleranno
-io avrò parlato
+io avrÃ² parlato
 tu avrai parlato
-egli avrà parlato
+egli avrÃ  parlato
 noi avremo parlato
 voi avrete parlato
 essi avranno parlato
@@ -313,7 +313,7 @@ voi avevate creduto
 essi avevano creduto
 io credetti, credei
 tu credesti
-egli credette, credé
+egli credette, credÃ©
 noi credemmo
 voi credeste
 essi credettero, crederono
@@ -323,15 +323,15 @@ egli ebbe creduto
 noi avemmo creduto
 voi aveste creduto
 essi ebbero creduto
-io crederò
+io crederÃ²
 tu crederai
-egli crederà
+egli crederÃ 
 noi crederemo
 voi crederete
 essi crederanno
-io avrò creduto
+io avrÃ² creduto
 tu avrai creduto
-egli avrà creduto
+egli avrÃ  creduto
 noi avremo creduto
 voi avrete creduto
 essi avranno creduto
@@ -409,7 +409,7 @@ voi avevate sentito
 essi avevano sentito
 io sentii
 tu sentisti
-egli sentì
+egli sentÃ¬
 noi sentimmo
 voi sentiste
 essi sentirono
@@ -419,15 +419,15 @@ egli ebbe sentito
 noi avemmo sentito
 voi aveste sentito
 essi ebbero sentito
-io sentirò
+io sentirÃ²
 tu sentirai
-egli sentirà
+egli sentirÃ 
 noi sentiremo
 voi sentirete
 essi sentiranno
-io avrò sentito
+io avrÃ² sentito
 tu avrai sentito
-egli avrà sentito
+egli avrÃ  sentito
 noi avremo sentito
 voi avrete sentito
 essi avranno sentito

@@ -59,4 +59,11 @@ public class Verbs extends ArrayList<Verb> {
 		}
 	}
 
+	public Verb get(String string) {
+		for (Verb v : this)
+			if (v.getName().equalsIgnoreCase(string))
+				return v;
+		return null;
+	}
+
 }
