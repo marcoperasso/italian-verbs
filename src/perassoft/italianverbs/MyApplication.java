@@ -40,6 +40,7 @@ public class MyApplication extends Application {
 			if (verbsLoaded)
 				return verbs;
 			verbs = Verbs.loadVerbs();
+			verbs.countVisibleVerbs();
 			verbsLoaded = true;
 		}
 		return verbs;

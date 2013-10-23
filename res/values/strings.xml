@@ -15,5 +15,12 @@
     <string name="about_msg">This app was written by &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; for his sons. Enjoy it!</string>
     <string name="action_information">Information</string>
     <string name="speech_joke_message_locale">it-IT</string>
+    <string name="title_activity_verbs">VerbsActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add_verbs">Add...</string>
+    <string name="delete">Delete</string>
+    <string name="are_you_sure_to_delete_verb">Are you sure to delete verb %s?</string>
+    <string name="choose_verbs">Choose verbs</string>
+    <string name="not_available_yet">Not available yet</string>
 
 </resources>

@@ -34,7 +34,9 @@
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/help" />
+        android:background="@drawable/bkgnd"
+        android:text=" ? " 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/textViewQuestion"
@@ -48,5 +50,15 @@
         android:paddingRight="5dp"
         android:paddingTop="10dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/buttonVerbs"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/buttonSpeak"
+        android:layout_alignRight="@+id/textViewQuestion"
+        android:background="@drawable/bkgnd"
+        android:text="+" 
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 </RelativeLayout>

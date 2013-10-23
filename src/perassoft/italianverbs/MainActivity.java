@@ -58,9 +58,9 @@ public class MainActivity extends Activity implements OnInitListener,
 	private Verb verb;
 	private int question;
 	private int verbIndex;
-	private AlphaAnimation mAnimation;
 	private Button mSpeakButton;
 	private Button mHelpButton;
+	private Button mVerbsButton;
 
 	private void startActivityForInstallVoiceRecognition() {
 		doOnAsk(getString(R.string.need_voice_recognition_components),
@@ -81,17 +81,15 @@ public class MainActivity extends Activity implements OnInitListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		PackageManager pm = getPackageManager();
-		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-		List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
-		if (activities.size() == 0) {
-			startActivityForInstallVoiceRecognition();
-			finish();
-			return;
-		}
-		Intent checkIntent = new Intent();
-		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
+		/*
+		 * PackageManager pm = getPackageManager(); Intent intent = new
+		 * Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); List<ResolveInfo>
+		 * activities = pm.queryIntentActivities(intent, 0); if
+		 * (activities.size() == 0) { startActivityForInstallVoiceRecognition();
+		 * finish(); return; } Intent checkIntent = new Intent();
+		 * checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+		 * startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
+		 */
 		random = new Random(System.currentTimeMillis());
 		messages = getResources().getStringArray(R.array.joke_messages);
 
@@ -106,28 +104,12 @@ public class MainActivity extends Activity implements OnInitListener,
 			restoredFromInstanceState = false;
 		}
 		updateScoreView();
-		mAnimation = new AlphaAnimation(1, 0.5f);
-		// from
-		// fully
-		// visible
-		// to
-		// invisible
-		mAnimation.setDuration(300);
-		mAnimation.setInterpolator(new LinearInterpolator()); // do not alter
-																// animation
-																// rate
-		mAnimation.setRepeatCount(Animation.INFINITE); // Repeat animation
-														// infinitely
-		mAnimation.setRepeatMode(Animation.REVERSE); // Reverse animation at the
-														// end so the button
-														// will
-														// fade back in
-
 		mSpeakButton = (Button) findViewById(R.id.buttonSpeak);
 		mSpeakButton.setOnClickListener(this);
-		mSpeakButton.setAnimation(mAnimation);
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
+		mVerbsButton = (Button) findViewById(R.id.buttonVerbs);
+		mVerbsButton.setOnClickListener(this);
 
 	}
 
@@ -270,22 +252,19 @@ public class MainActivity extends Activity implements OnInitListener,
 				ArrayList<String> matches = data
 						.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 				boolean right = verb.verify(question, matches);
-				if (right)
-				{
+				if (right) {
 					message(verb.get(question), NEUTRAL,
 							getCurrentJokeMessageLocale(), true);
 					message(getRandomMessage(), QUESTION_NEEDED,
 							getCurrentJokeMessageLocale(), true);
 					score++;
-				}
-				else
-				{
+				} else {
 					message(getString(R.string.wrong), ASK, getCurrentLocale(),
 							true);
 					score -= 2;
 				}
 				updateScoreView();
-				
+
 			}
 		}
 	}
@@ -341,9 +320,13 @@ public class MainActivity extends Activity implements OnInitListener,
 	private void generateQuestion() {
 
 		Verbs verbs = MyApplication.getInstance().getVerbs();
-		verbIndex = random.nextInt(verbs.size());
+		verbIndex = random.nextInt(verbs.getVisibleVerbs());
 		verb = verbs.get(verbIndex);
-		question = random.nextInt(Verb.getVisibleVerbs());
+		while (Verbs.isHiddenVerb(verb)) {
+			verbIndex++;
+			verb = verbs.get(verbIndex);
+		}
+		question = random.nextInt(Verb.getVisibleVerbItems());
 		while (!Verb.isVisible(question))
 			question++;
 
@@ -464,8 +447,7 @@ public class MainActivity extends Activity implements OnInitListener,
 		if (v.getId() == R.id.buttonSpeak) {
 			if (verb != null)
 				startVoiceRecognitionActivity(verb.getDescription(question));
-		}
-		if (v.getId() == R.id.buttonHelp) {
+		} else if (v.getId() == R.id.buttonHelp) {
 			if (verb != null) {
 				message(verb.get(question), NEUTRAL,
 						getCurrentJokeMessageLocale(), true);
@@ -473,6 +455,9 @@ public class MainActivity extends Activity implements OnInitListener,
 				updateScoreView();
 				generateQuestion();
 			}
+		} else if (v.getId() == R.id.buttonVerbs) {
+			Intent intent = new Intent(this, VerbsActivity.class);
+			startActivityForResult(intent, RESULT_SETTINGS);
 		}
 
 	}
