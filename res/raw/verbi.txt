@@ -478,3 +478,387 @@ sentente, senziente
 sentito
 sentendo
 avendo sentito
+FARE
+io faccio, fo
+tu fai
+egli fa
+noi facciamo
+voi fate
+essi fanno
+io ho fatto
+tu hai fatto
+egli ha fatto
+noi abbiamo fatto
+voi avete fatto
+essi hanno fatto
+io facevo
+tu facevi
+egli faceva
+noi facevamo
+voi facevate
+essi facevano
+io avevo fatto
+tu avevi fatto
+egli aveva fatto
+noi avevamo fatto
+voi avevate fatto
+essi avevano fatto
+io feci
+tu facesti
+egli fece
+noi facemmo
+voi faceste
+essi fecero
+io ebbi fatto
+tu avesti fatto
+egli ebbe fatto
+noi avemmo fatto
+voi aveste fatto
+essi ebbero fatto
+io farò
+tu farai
+egli farà
+noi faremo
+voi farete
+essi faranno
+io avrò fatto
+tu avrai fatto
+egli avrà fatto
+noi avremo fatto
+voi avrete fatto
+essi avranno fatto
+io farei
+tu faresti
+egli farebbe
+noi faremmo
+voi fareste
+essi farebbero
+io avrei fatto
+tu avresti fatto
+egli avrebbe fatto
+noi avremmo fatto
+voi avreste fatto
+essi avrebbero fatto
+che io faccia
+che tu faccia
+che egli faccia
+che noi facciamo
+che voi facciate
+che essi facciano
+che io abbia fatto
+che tu abbia fatto
+che egli abbia fatto
+che noi abbiamo fatto
+che voi abbiate fatto
+che essi abbiano fatto
+che io facessi
+che tu facessi
+che egli facesse
+che noi facessimo
+che voi faceste
+che essi facessero
+che io avessi fatto
+che tu avessi fatto
+che egli avesse fatto
+che noi avessimo fatto
+che voi aveste fatto
+che essi avessero fatto
+fa, fai, fa'
+faccia
+facciamo
+fate
+facciano
+fare
+avere fatto
+facente
+fatto
+facendo
+avendo fatto
+ANDARE
+io vado
+tu vai
+egli va
+noi andiamo
+voi andate
+essi vanno
+io sono andato
+tu sei andato
+egli è andato
+noi siamo andati
+voi siete andati
+essi sono andati
+io andavo
+tu andavi
+egli andava
+noi andavamo
+voi andavate
+essi andavano
+io ero andato
+tu eri andato
+egli era andato
+noi eravamo andati
+voi eravate andati
+essi erano andati
+io andai
+tu andasti
+egli andò
+noi andammo
+voi andaste
+essi andarono
+io fui andato
+tu fosti andato
+egli fu andato
+noi fummo andati
+voi foste andati
+essi furono andati
+io andrò
+tu andrai
+egli andrà
+noi andremo
+voi andrete
+essi andranno
+io sarò andato
+tu sarai andato
+egli sarà andato
+noi saremo andati
+voi sarete andati
+essi saranno andati
+io andrei
+tu andresti
+egli andrebbe
+noi andremmo
+voi andreste
+essi andrebbero
+io sarei andato
+tu saresti andato
+egli sarebbe andato
+noi saremmo andati
+voi sareste andati
+essi sarebbero andati
+che io vada
+che tu vada
+che egli vada
+che noi andiamo
+che voi andiate
+che essi vadano
+che io sia andato
+che tu sia andato
+che egli sia andato
+che noi siamo andati
+che voi siate andati
+che essi siano andati
+che io andassi
+che tu andassi
+che egli andasse
+che noi andassimo
+che voi andaste
+che essi andassero
+che io fossi andato
+che tu fossi andato
+che egli fosse andato
+che noi fossimo andati
+che voi foste andati
+che essi fossero andati
+va, vai, va'
+vada
+andiamo
+andate
+vadano
+andare
+essere andato
+andante
+andato
+andando
+essendo andato
+POTERE
+io posso
+tu puoi
+egli può
+noi possiamo
+voi potete
+essi possono
+io ho potuto
+tu hai potuto
+egli ha potuto
+noi abbiamo potuto
+voi avete potuto
+essi hanno potuto
+io potevo
+tu potevi
+egli poteva
+noi potevamo
+voi potevate
+essi potevano
+io avevo potuto
+tu avevi potuto
+egli aveva potuto
+noi avevamo potuto
+voi avevate potuto
+essi avevano potuto
+io potetti, potei
+tu potesti
+egli potette, poté
+noi potemmo
+voi poteste
+essi potettero, poterono
+io ebbi potuto
+tu avesti potuto
+egli ebbe potuto
+noi avemmo potuto
+voi aveste potuto
+essi ebbero potuto
+io potrò
+tu potrai
+egli potrà
+noi potremo
+voi potrete
+essi potranno
+io avrò potuto
+tu avrai potuto
+egli avrà potuto
+noi avremo potuto
+voi avrete potuto
+essi avranno potuto
+io potrei
+tu potresti
+egli potrebbe
+noi potremmo
+voi potreste
+essi potrebbero
+io avrei potuto
+tu avresti potuto
+egli avrebbe potuto
+noi avremmo potuto
+voi avreste potuto
+essi avrebbero potuto
+che io possa
+che tu possa
+che egli possa
+che noi possiamo
+che voi possiate
+che essi possano
+che io abbia potuto
+che tu abbia potuto
+che egli abbia potuto
+che noi abbiamo potuto
+che voi abbiate potuto
+che essi abbiano potuto
+che io potessi
+che tu potessi
+che egli potesse
+che noi potessimo
+che voi poteste
+che essi potessero
+che io avessi potuto
+che tu avessi potuto
+che egli avesse potuto
+che noi avessimo potuto
+che voi aveste potuto
+che essi avessero potuto
+-
+-
+-
+-
+-
+potere
+avere potuto
+potente
+potuto
+potendo
+avendo potuto
+VOLERE
+io voglio
+tu vuoi
+egli vuole
+noi vogliamo
+voi volete
+essi vogliono
+io ho voluto
+tu hai voluto
+egli ha voluto
+noi abbiamo voluto
+voi avete voluto
+essi hanno voluto
+io volevo
+tu volevi
+egli voleva
+noi volevamo
+voi volevate
+essi volevano
+io avevo voluto
+tu avevi voluto
+egli aveva voluto
+noi avevamo voluto
+voi avevate voluto
+essi avevano voluto
+io volli
+tu volesti
+egli volle
+noi volemmo
+voi voleste
+essi vollero
+io ebbi voluto
+tu avesti voluto
+egli ebbe voluto
+noi avemmo voluto
+voi aveste voluto
+essi ebbero voluto
+io vorrò
+tu vorrai
+egli vorrà
+noi vorremo
+voi vorrete
+essi vorranno
+io avrò voluto
+tu avrai voluto
+egli avrà voluto
+noi avremo voluto
+voi avrete voluto
+essi avranno voluto
+io vorrei
+tu vorresti
+egli vorrebbe
+noi vorremmo
+voi vorreste
+essi vorrebbero
+io avrei voluto
+tu avresti voluto
+egli avrebbe voluto
+noi avremmo voluto
+voi avreste voluto
+essi avrebbero voluto
+che io voglia
+che tu voglia
+che egli voglia
+che noi vogliamo
+che voi vogliate
+che essi vogliano
+che io abbia voluto
+che tu abbia voluto
+che egli abbia voluto
+che noi abbiamo voluto
+che voi abbiate voluto
+che essi abbiano voluto
+che io volessi
+che tu volessi
+che egli volesse
+che noi volessimo
+che voi voleste
+che essi volessero
+che io avessi voluto
+che tu avessi voluto
+che egli avesse voluto
+che noi avessimo voluto
+che voi aveste voluto
+che essi avessero voluto
+vuoi
+voglia
+vogliamo
+volete
+vogliano
+volere
+avere voluto
+volente
+voluto
+volendo
+avendo voluto
