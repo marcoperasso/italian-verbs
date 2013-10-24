@@ -81,7 +81,12 @@ public class Verbs extends ArrayList<Verb> {
 		MyApplication.getInstance().saveObject(file, this);
 		countVisibleVerbs();
 	}
-
+	public void addVerb(Verb verb) throws IOException {
+		add(verb);
+		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
+		MyApplication.getInstance().saveObject(file, this);
+		countVisibleVerbs();
+	}
 	public void setHiddenVerb(Verb v, boolean b) {
 		SharedPreferences settings = MyApplication.getInstance()
 				.getSharedPreferences(VERBS, 0);
@@ -147,4 +152,6 @@ public class Verbs extends ArrayList<Verb> {
 		editor.commit();
 		MyApplication.getInstance().resetVerbs();
 	}
+
+	
 }

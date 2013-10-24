@@ -59,7 +59,6 @@ public class MainActivity extends Activity implements OnInitListener,
 	private int verbIndex;
 	private Button mSpeakButton;
 	private Button mHelpButton;
-	private Button mVerbsButton;
 
 	private void startActivityForInstallVoiceRecognition() {
 		doOnAsk(getString(R.string.need_voice_recognition_components),
@@ -80,17 +79,17 @@ public class MainActivity extends Activity implements OnInitListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		//PackageManager pm = getPackageManager();
-		//Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-		//List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
-		//if (activities.size() == 0) {
-		//	startActivityForInstallVoiceRecognition();
-		//	finish();
-		//	return;
-		//}
-		//Intent checkIntent = new Intent();
-		//checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		//startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
+		 PackageManager pm = getPackageManager();
+		 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+		 List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
+		 if (activities.size() == 0) {
+		 startActivityForInstallVoiceRecognition();
+		 finish();
+		 return;
+		 }
+		 Intent checkIntent = new Intent();
+		 checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+		 startActivityForResult(checkIntent, RESULT_SPEECH_CHECK_CODE);
 
 		random = new Random(System.currentTimeMillis());
 		messages = getResources().getStringArray(R.array.joke_messages);
@@ -110,8 +109,6 @@ public class MainActivity extends Activity implements OnInitListener,
 		mSpeakButton.setOnClickListener(this);
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
-		mVerbsButton = (Button) findViewById(R.id.buttonVerbs);
-		mVerbsButton.setOnClickListener(this);
 
 	}
 
@@ -164,13 +161,20 @@ public class MainActivity extends Activity implements OnInitListener,
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.action_settings:
+		case R.id.action_settings: {
 			Intent intent = new Intent(this, SettingsActivity.class);
 			startActivityForResult(intent, RESULT_SETTINGS);
 			break;
-		case R.id.action_about:
+		}
+		case R.id.action_about: {
 			showAboutDialog();
 			break;
+		}
+		case R.id.action_verbs: {
+			Intent intent = new Intent(this, VerbsActivity.class);
+			startActivityForResult(intent, RESULT_SETTINGS);
+			break;
+		}
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -261,8 +265,15 @@ public class MainActivity extends Activity implements OnInitListener,
 							getCurrentJokeMessageLocale(), true);
 					score++;
 				} else {
-					message(getString(R.string.wrong), NEUTRAL, getCurrentLocale(),
-							true);
+					StringBuilder sb = new StringBuilder();
+					if (matches.size() > 0)
+					{
+						sb.append(matches.get(0));
+						sb.append("? ");
+					}
+					sb.append(getString(R.string.wrong));
+					message(sb.toString(), NEUTRAL,
+							getCurrentLocale(), true);
 					score -= 2;
 				}
 				updateScoreView();
@@ -457,9 +468,6 @@ public class MainActivity extends Activity implements OnInitListener,
 				updateScoreView();
 				generateQuestion();
 			}
-		} else if (v.getId() == R.id.buttonVerbs) {
-			Intent intent = new Intent(this, VerbsActivity.class);
-			startActivityForResult(intent, RESULT_SETTINGS);
 		}
 
 	}

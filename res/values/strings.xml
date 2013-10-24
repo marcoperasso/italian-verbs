@@ -23,5 +23,7 @@
     <string name="choose_verbs">Choose verbs</string>
     <string name="not_available_yet">Not available yet</string>
     <string name="reset_original_verbs">Reset original verbs</string>
+    <string name="verbs">Verbs...</string>
+    <string name="action_verbs">Verbs...</string>
 
 </resources>

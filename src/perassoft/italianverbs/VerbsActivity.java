@@ -1,6 +1,7 @@
 package perassoft.italianverbs;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.List;
 
 import android.os.Bundle;
@@ -126,6 +127,18 @@ public class VerbsActivity extends Activity implements OnClickListener {
 
 	}
 
+
+	private void addVerb(Verb verb) {
+		Verbs verbs = MyApplication.getInstance().getVerbs();
+		try {
+			verbs.addVerb(verb);
+		} catch (IOException e) {
+			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+			return;
+		}
+		populate();
+		
+	}
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonAdd) {
@@ -152,12 +165,27 @@ public class VerbsActivity extends Activity implements OnClickListener {
 		{
 			if (RESULT_OK == resultCode)
 			{
-				String string = data.getExtras().getString("VERB");
-				Toast.makeText(this, string, Toast.LENGTH_LONG).show();
+				if (data.getExtras() == null)
+					return;
+				CharSequence[] lines = data.getExtras().getCharSequenceArray("VERB");
+				if (lines == null)
+					return;
+				Verb verb = new Verb(lines[0].toString());
+				for (int i = 1; i <= Verb.MAX_VERBS; i++) {
+					verb.add(lines[i].toString());
+				}
+				addVerb(verb);
 				
+			}
+			else
+			{
+				Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
 			}
 			
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
+
+
+
 }

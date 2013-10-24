@@ -13,5 +13,12 @@
         android:showAsAction="never"
         android:title="@string/action_information">
     </item>
+     <item
+        android:id="@+id/action_verbs"
+        android:orderInCategory="102"
+        android:icon="@drawable/ic_launcher"
+        android:showAsAction="never"
+        android:title="@string/action_verbs">
+    </item>
 
 </menu>
