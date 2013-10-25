@@ -114,7 +114,9 @@ public class MainActivity extends Activity implements OnInitListener,
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
 		
-		((EditText)findViewById(R.id.editTextAnswer)).setOnEditorActionListener(this);
+		EditText editText = (EditText)findViewById(R.id.editTextAnswer);
+		editText.setOnEditorActionListener(this);
+		editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
 	}
 
@@ -496,7 +498,8 @@ public class MainActivity extends Activity implements OnInitListener,
 
 	@Override
 	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-		 if (actionId == EditorInfo.IME_ACTION_DONE) {
+		 if (actionId == EditorInfo.IME_ACTION_DONE || (event.getAction() == KeyEvent.ACTION_DOWN &&
+	                event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
 
 			 ArrayList<String> list  = new ArrayList<String>();
 				list.add(v.getText().toString());
