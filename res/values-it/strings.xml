@@ -13,4 +13,12 @@
     <string name="welcome_message">Ciao, sono miss Puzzy, la tua maestra di italiano un po\' sciroccata. Vuoi sudiare con me?</string>
     <string name="about_msg">Questa applicazione è stata scritta da &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; per i propri figli. Mi raccomando, fanne buon uso!</string>
     <string name="action_information">Informazioni</string>
+    <string name="add_verbs">Aggiungi&#8230;</string>
+    <string name="delete">Elimina</string>
+    <string name="are_you_sure_to_delete_verb">Sicuro di voler eliminare il verbo %s?</string>
+    <string name="choose_verbs">Scegli i verbi</string>
+    <string name="not_available_yet">Non disponibile</string>
+    <string name="reset_original_verbs">Reimposta i verbi originali</string>
+    <string name="action_verbs">Verbi&#8230;</string>
+    <string name="voice_recognition_not_available">Riconoscimento vocale non disponibile</string>
 </resources>

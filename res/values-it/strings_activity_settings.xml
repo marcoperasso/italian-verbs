@@ -2,11 +2,4 @@
 
     <string name="title_activity_settings">Impostazioni</string>
 
-    <!-- Strings related to Settings -->
-
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">Generale</string>
-
-        <string name="settings_title">Impostazioni</string>
 </resources>

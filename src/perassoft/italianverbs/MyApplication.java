@@ -10,7 +10,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
 import android.app.Application;
-import android.content.Context;
 
 public class MyApplication extends Application {
 

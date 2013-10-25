@@ -1,27 +1,24 @@
 package perassoft.italianverbs;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.List;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.speech.RecognizerIntent;
+import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 public class VerbsActivity extends Activity implements OnClickListener {

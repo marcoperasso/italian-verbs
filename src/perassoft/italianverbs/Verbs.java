@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 import android.content.SharedPreferences;
 
@@ -136,6 +134,10 @@ public class Verbs extends ArrayList<Verb> {
 		for (int i = 0; i < size(); i++)
 			if (!isHiddenVerb(get(i)))
 				visibleVerbs++;
+		if (visibleVerbs == 0)
+		{
+			setHiddenVerb(get(0), false);
+		}
 		return visibleVerbs;
 	}
 
