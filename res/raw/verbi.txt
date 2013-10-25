@@ -862,3 +862,99 @@ volente
 voluto
 volendo
 avendo voluto
+DOVERE
+io devo
+tu devi
+egli deve
+noi dobbiamo
+voi dovete
+essi devono, essi debbono
+io ho dovuto
+tu hai dovuto
+egli ha dovuto
+noi abbiamo dovuto
+voi avete dovuto
+essi hanno dovuto
+io dovevo
+tu dovevi
+egli doveva
+noi dovevamo
+voi dovevate
+essi dovevano
+io avevo dovuto
+tu avevi dovuto
+egli aveva dovuto
+noi avevamo dovuto
+voi avevate dovuto
+essi avevano dovuto
+io dovetti, io dovei
+tu dovesti
+egli dovette, egli dové
+noi dovemmo
+voi doveste
+essi dovettero, essi doverono
+io ebbi dovuto
+tu avesti dovuto
+egli ebbe dovuto
+noi avemmo dovuto
+voi aveste dovuto
+essi ebbero dovuto
+io dovrò
+tu dovrai
+egli dovrà
+noi dovremo
+voi dovrete
+essi dovranno
+io avrò dovuto
+tu avrai dovuto
+egli avrà dovuto
+noi avremo dovuto
+voi avrete dovuto
+essi avranno dovuto
+io dovrei
+tu dovresti
+egli dovrebbe
+noi dovremmo
+voi dovreste
+essi dovrebbero
+io avrei dovuto
+tu avresti dovuto
+egli avrebbe dovuto
+noi avremmo dovuto
+voi avreste dovuto
+essi avrebbero dovuto
+che io deva, che io debba
+che tu deva, che tu debba
+che egli deva, che egli debba
+che noi dobbiamo
+che voi dobbiate
+che essi devano, che essi debbano
+che io abbia dovuto
+che tu abbia dovuto
+che egli abbia dovuto
+che noi abbiamo dovuto
+che voi abbiate dovuto
+che essi abbiano dovuto
+che io dovessi
+che tu dovessi
+che egli dovesse
+che noi dovessimo
+che voi doveste
+che essi dovessero
+che io avessi dovuto
+che tu avessi dovuto
+che egli avesse dovuto
+che noi avessimo dovuto
+che voi aveste dovuto
+che essi avessero dovuto
+-
+-
+-
+-
+-
+dovere
+avere dovuto
+-
+dovuto
+dovendo
+avendo dovuto

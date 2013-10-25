@@ -16,39 +16,50 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
         android:background="@android:color/white"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/buttonSpeak"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/microphone" />
-
-    <Button
-        android:id="@+id/buttonHelp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/bkgnd"
-        android:text=" ? " 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/textViewQuestion"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_alignBottom="@+id/textViewScore"
-        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/layoutAnswer"
         android:background="@drawable/balloon"
-        android:gravity="center"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="40dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+         android:id="@+id/layoutAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewScore"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/buttonHelp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bkgnd"
+            android:text=" ? "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextAnswer"
+            android:layout_width="185dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="text" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/microphone" />
+    </LinearLayout>
 
 </RelativeLayout>

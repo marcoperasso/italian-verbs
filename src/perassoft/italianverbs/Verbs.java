@@ -82,6 +82,9 @@ public class Verbs extends ArrayList<Verb> {
 		countVisibleVerbs();
 	}
 	public void addVerb(Verb verb) throws IOException {
+		for (Verb v : this)
+			if (v.getName().equals(verb.getName()))
+				this.remove(v);
 		add(verb);
 		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
 		MyApplication.getInstance().saveObject(file, this);
@@ -153,5 +156,7 @@ public class Verbs extends ArrayList<Verb> {
 		MyApplication.getInstance().resetVerbs();
 	}
 
+	public static void dummy() {
+	}
 	
 }

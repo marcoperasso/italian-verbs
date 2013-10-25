@@ -20,7 +20,9 @@ public class MyApplication extends Application {
 
 	@Override
 	public void onCreate() {
+		super.onCreate();
 		MyApplication.application = this;
+		//Verbs.dummy();//solo per caricare la classe
 		new Thread(new Runnable() {
 
 			@Override
@@ -28,7 +30,6 @@ public class MyApplication extends Application {
 				getVerbs();
 			}
 		}).start();
-		super.onCreate();
 	}
 
 	public static MyApplication getInstance() {

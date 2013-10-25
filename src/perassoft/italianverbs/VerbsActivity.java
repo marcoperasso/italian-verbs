@@ -179,7 +179,7 @@ public class VerbsActivity extends Activity implements OnClickListener {
 			}
 			else
 			{
-				Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
+				//Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
 			}
 			
 		}

@@ -21,10 +21,13 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,12 +36,15 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnInitListener,
-		OnClickListener {
+		OnClickListener, OnEditorActionListener {
 
 	private static final String TTS = "TTS";
 	private static final String SCORE = "score";
@@ -59,6 +65,7 @@ public class MainActivity extends Activity implements OnInitListener,
 	private int verbIndex;
 	private Button mSpeakButton;
 	private Button mHelpButton;
+	private boolean voiceRecognition;
 
 	private void startActivityForInstallVoiceRecognition() {
 		doOnAsk(getString(R.string.need_voice_recognition_components),
@@ -83,9 +90,11 @@ public class MainActivity extends Activity implements OnInitListener,
 		 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 		 List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
 		 if (activities.size() == 0) {
-		 startActivityForInstallVoiceRecognition();
-		 finish();
-		 return;
+			 startActivityForInstallVoiceRecognition();
+		 }
+		 else
+		 {
+			 voiceRecognition = true;
 		 }
 		 Intent checkIntent = new Intent();
 		 checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
@@ -109,6 +118,8 @@ public class MainActivity extends Activity implements OnInitListener,
 		mSpeakButton.setOnClickListener(this);
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
+		
+		((EditText)findViewById(R.id.editTextAnswer)).setOnEditorActionListener(this);
 
 	}
 
@@ -125,9 +136,15 @@ public class MainActivity extends Activity implements OnInitListener,
 	/**
 	 * Fire an intent to start the speech recognition activity.
 	 * 
+	 * 
 	 * @param text
 	 */
 	private void startVoiceRecognitionActivity(String text) {
+		if (!voiceRecognition)
+		{
+			Toast.makeText(this, R.string.voice_recognition_not_available, Toast.LENGTH_LONG).show();
+			return;
+		}
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 
 		// Specify the calling package to identify your application
@@ -241,7 +258,6 @@ public class MainActivity extends Activity implements OnInitListener,
 		if (requestCode == RESULT_SPEECH_CHECK_CODE) {
 			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_FAIL) {
 				startActivityForInstallTTS();
-				finish();
 			} else {
 
 				tts = new TextToSpeech(this, this);
@@ -253,33 +269,35 @@ public class MainActivity extends Activity implements OnInitListener,
 
 		} else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE) {
 			if (resultCode == RESULT_OK) {
-				// Fill the list view with the strings the recognizer thought it
-				// could have heard
 				ArrayList<String> matches = data
 						.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-				boolean right = verb.verify(question, matches);
-				if (right) {
-					message(verb.get(question), NEUTRAL,
-							getCurrentJokeMessageLocale(), true);
-					message(getRandomMessage(), QUESTION_NEEDED,
-							getCurrentJokeMessageLocale(), true);
-					score++;
-				} else {
-					StringBuilder sb = new StringBuilder();
-					if (matches.size() > 0)
-					{
-						sb.append(matches.get(0));
-						sb.append("? ");
-					}
-					sb.append(getString(R.string.wrong));
-					message(sb.toString(), NEUTRAL,
-							getCurrentLocale(), true);
-					score -= 2;
-				}
-				updateScoreView();
+				testAnswer(matches);
 
 			}
 		}
+	}
+
+	private void testAnswer(ArrayList<String> matches) {
+		// Fill the list view with the strings the recognizer thought it
+		// could have heard
+		boolean right = verb.verify(question, matches);
+		if (right) {
+			message(verb.get(question), NEUTRAL,
+					getCurrentJokeMessageLocale(), true);
+			message(getRandomMessage(), QUESTION_NEEDED,
+					getCurrentJokeMessageLocale(), true);
+			score++;
+		} else {
+			if (matches.size() > 0)
+			{
+				message(matches.get(0) + "?", NEUTRAL,
+						getCurrentJokeMessageLocale(), true);
+			}
+			message(getString(R.string.wrong), NEUTRAL,
+					getCurrentLocale(), true);
+			score -= 2;
+		}
+		updateScoreView();
 	}
 
 	private void startActivityForInstallTTS() {
@@ -311,8 +329,17 @@ public class MainActivity extends Activity implements OnInitListener,
 					public void onClick(DialogInterface dialog, int which) {
 						runnable.run();
 						dialog.cancel();
+						finish();
 					}
 				});
+		builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				
+			}});
+		
 		AlertDialog dialog = builder.create();
 		dialog.show();
 	}
@@ -378,7 +405,6 @@ public class MainActivity extends Activity implements OnInitListener,
 			if (tts.isLanguageAvailable(current) < TextToSpeech.LANG_AVAILABLE
 					|| tts.isLanguageAvailable(getCurrentJokeMessageLocale()) < TextToSpeech.LANG_AVAILABLE) {
 				startActivityForInstallTTS();
-				finish();
 				return;
 			}
 			int result = tts.setLanguage(current);
@@ -459,6 +485,7 @@ public class MainActivity extends Activity implements OnInitListener,
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonSpeak) {
 			if (verb != null)
+				
 				startVoiceRecognitionActivity(verb.getDescription(question));
 		} else if (v.getId() == R.id.buttonHelp) {
 			if (verb != null) {
@@ -470,5 +497,18 @@ public class MainActivity extends Activity implements OnInitListener,
 			}
 		}
 
+	}
+
+	@Override
+	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+		 if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+			 ArrayList<String> list  = new ArrayList<String>();
+				list.add(v.getText().toString());
+				testAnswer(list);
+
+             return true;
+         }
+		return false;
 	}
 }
