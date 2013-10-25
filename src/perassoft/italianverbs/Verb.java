@@ -32,6 +32,26 @@ public class Verb extends ArrayList<String> {
 	private static final String CONGIUNTIVO = "congiuntivo";
 	private static final String CONDIZIONALE = "condizionale";
 	private static final String INDICATIVO = "indicativo";
+	
+	public static String[] moods = {
+			INDICATIVO, 
+			CONDIZIONALE, 
+			CONGIUNTIVO, 
+			IMPERATIVO, 
+			INFINITO, 
+			PARTICIPIO, 
+			GERUNDIO
+			};
+	public static String[][]tenses = {
+			{PRESENTE, PASSATO_PROSSIMO,IMPERFETTO,TRAPASSATO_PROSSIMO,PASSATO_REMOTO,TRAPASSATO_REMOTO,FUTURO_SEMPLICE,FUTURO_ANTERIORE},
+			{PRESENTE, PASSATO},
+			{PRESENTE,PASSATO,IMPERFETTO,TRAPASSATO},
+			{PRESENTE},
+			{PRESENTE, PASSATO},
+			{PRESENTE, PASSATO},
+			{PRESENTE, PASSATO}
+			
+	};
 	/**
 	 * 
 	 */
@@ -44,7 +64,7 @@ public class Verb extends ArrayList<String> {
 		this.name = name;
 	}
 
-	String getModo(int i) {
+	public String getMood(int i) {
 		if (i < 48)
 			return INDICATIVO;
 		if (i < 60)
@@ -67,7 +87,7 @@ public class Verb extends ArrayList<String> {
 		return name;
 	};
 
-	String getTempo(int i) {
+	String getTense(int i) {
 		if (i < 6)
 			return PRESENTE;
 		if (i < 12)
@@ -202,9 +222,9 @@ public class Verb extends ArrayList<String> {
 		sb.append("Verbo ");
 		sb.append(name);
 		sb.append(", modo ");
-		sb.append(getModo(question));
+		sb.append(getMood(question));
 		sb.append(", tempo ");
-		sb.append(getTempo(question));
+		sb.append(getTense(question));
 		String persona = getPersona(question);
 		if (persona != null) {
 			sb.append(", ");

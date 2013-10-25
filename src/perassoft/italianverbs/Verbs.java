@@ -158,7 +158,6 @@ public class Verbs extends ArrayList<Verb> {
 		MyApplication.getInstance().resetVerbs();
 	}
 
-	public static void dummy() {
-	}
+	
 	
 }

@@ -23,5 +23,11 @@
     <string name="reset_original_verbs">Reset original verbs</string>
     <string name="action_verbs">Verbs&#8230;</string>
     <string name="voice_recognition_not_available">Voice recognition not available</string>
+    <string name="action_learn">Learn...</string>
+    <string name="again">Again</string>
+    <string name="choose_tense">Choose tense</string>
+    <string name="choose_mood">Choose mood</string>
+    <string name="choose_verb">Choose verb</string>
+    <string name="_missing_">(missing)</string>
 
 </resources>

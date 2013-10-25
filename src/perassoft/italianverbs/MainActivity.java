@@ -189,10 +189,62 @@ public class MainActivity extends Activity implements OnInitListener,
 			startActivityForResult(intent, RESULT_SETTINGS);
 			break;
 		}
+		case R.id.action_learn: {
+			learn();
+			break;
+		}
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
+	private void learn() {
+		Learn l = new Learn(this);
+		l.start(new LearnDone() {
+			
+			@Override
+			public void onChooseTense(Verb verb, int start, int end) {
+				teachVerb(verb, start, end);
+			}
+
+			
+		});
+		
+	}
+	private void teachVerb(Verb verb, int start, int end) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = start; i < end; i++)
+		{
+			String text = verb.get(i);
+			if (text.equals("-"))
+				text = getString(R.string._missing_);
+			message(text, NEUTRAL, getCurrentJokeMessageLocale(), false);
+			if (sb.length() > 0)
+				sb.append("\r\n");
+			sb.append(text);
+			
+		}
+		StringBuilder title = new StringBuilder();
+		title.append(verb.getName());
+		title.append(", ");
+		title.append(verb.getMood(start));
+		title.append(", ");
+		title.append( verb.getTense(start));
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder
+		.setTitle(title.toString())
+		.setMessage(sb.toString())
+		.setCancelable(true)
+		.setPositiveButton(R.string.again, new DialogInterface.OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				learn();
+				
+			}})
+		.setNegativeButton(android.R.string.cancel, null)
+				.show();
+	}
 	private void showAboutDialog() {
 		Builder builder = new AlertDialog.Builder(this);
 		PackageInfo pInfo = null;

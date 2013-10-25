@@ -21,4 +21,10 @@
     <string name="reset_original_verbs">Reimposta i verbi originali</string>
     <string name="action_verbs">Verbi&#8230;</string>
     <string name="voice_recognition_not_available">Riconoscimento vocale non disponibile</string>
+        <string name="action_learn">Impara...</string>
+    <string name="again">Ancora</string>
+    <string name="choose_tense">Scegli il tempo</string>
+    <string name="choose_mood">Scegli il modo</string>
+    <string name="choose_verb">Scegli il verbo</string>
+    <string name="_missing_">(manca)</string>
 </resources>
