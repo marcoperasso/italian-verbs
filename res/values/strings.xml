@@ -29,5 +29,11 @@
     <string name="choose_mood">Choose mood</string>
     <string name="choose_verb">Choose verb</string>
     <string name="_missing_">(missing)</string>
+    <string name="title_activity_study">Studia i verbi</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="verb">Verb</string>
+    <string name="mood">Mood</string>
+    <string name="tense">Tense</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.content.SharedPreferences;
 
@@ -156,6 +158,16 @@ public class Verbs extends ArrayList<Verb> {
 		editor.putString(HIDDEN_VERBS, "");
 		editor.commit();
 		MyApplication.getInstance().resetVerbs();
+	}
+
+	public void sort() {
+		Collections.sort(this, new Comparator<Verb>() {
+		    public int compare(Verb a, Verb b) {
+		        return a.getName().compareTo(b.getName());
+		    }
+		   
+		});
+		
 	}
 
 	
