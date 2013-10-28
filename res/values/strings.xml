@@ -7,14 +7,13 @@
     <string name="score">Score: %d</string>
     <string name="language_not_supported">Language non supported</string>
     <string name="tts_initilization_failed">Failed to initialize the speak engine</string>
-    <string name="right">Right!</string>
     <string name="need_tts_components">This app needs installation of the speech engine components for the following languages: \'%s\'. At the end of the installation please restart the application.</string>
     <string name="need_voice_recognition_components">This app needs installation of voice recognition components. At the end of the installation please restart the application.</string>
     <string name="speech_locale">en</string>
     <string name="welcome_message">Hello, I\'m miss Puzzy, your crazy teacher of italian. Do you want to study with me?</string>
     <string name="about_msg">This app was written by &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; for his sons. Enjoy it!</string>
     <string name="action_information">Information</string>
-    <string name="speech_joke_message_locale">it-IT</string>
+    <string name="speech_joke_message_locale" translatable="false">it-IT</string>
     <string name="add_verbs">Add&#8230;</string>
     <string name="delete">Delete</string>
     <string name="are_you_sure_to_delete_verb">Are you sure to delete verb %s?</string>
@@ -23,11 +22,6 @@
     <string name="reset_original_verbs">Reset original verbs</string>
     <string name="action_verbs">Verbs&#8230;</string>
     <string name="voice_recognition_not_available">Voice recognition not available</string>
-    <string name="action_learn">Learn&#8230;</string>
-    <string name="again">Again</string>
-    <string name="choose_tense">Choose tense</string>
-    <string name="choose_mood">Choose mood</string>
-    <string name="choose_verb">Choose verb</string>
     <string name="_missing_">(missing)</string>
     <string name="title_activity_study">Learn Verbs</string>
     <string name="verb">Verb</string>

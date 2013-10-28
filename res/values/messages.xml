@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-   <string-array name="joke_messages">
+   <string-array name="joke_messages" translatable="false">
         <item>Per mille corbezzoli, allora sei proprio in gamba!</item>
 		<item>Che mi venga un tic al naso, complimenti!</item>
 		<item>Per tutte le ciabatte puzzolenti, ottimo lavoro!</item>
