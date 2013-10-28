@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -21,7 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class VerbsActivity extends Activity implements OnClickListener {
+public class VerbsActivity extends CommonActivity implements OnClickListener {
 
 	private static final int DOWNLOAD_VERB_RESULT = 1;
 	private static final int menuDeleteLocal = 0;
@@ -144,7 +145,7 @@ public class VerbsActivity extends Activity implements OnClickListener {
 			intent.setClassName("perassoft.italianverbsextension", "perassoft.italianverbsextension.VerbDownloaderActivity");
 			List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
 			if (activities.size() == 0) {
-				Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
+				 startActivityForInstallExtension();
 			}
 			else
 			{
@@ -155,6 +156,21 @@ public class VerbsActivity extends Activity implements OnClickListener {
 			Verbs.restoreOriginal();
 			populate();
 		}
+	}
+	
+	private void startActivityForInstallExtension() {
+		doOnAsk(new Runnable() {
+
+					@Override
+					public void run() {
+						Intent marketIntent = new Intent(
+								Intent.ACTION_VIEW,
+								Uri.parse("market://search?q=pname:perassoft.italianverbsextension"));
+						startActivity(marketIntent);
+					}
+				},
+				R.string.need_extension_components
+				);
 	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

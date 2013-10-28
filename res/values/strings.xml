@@ -9,6 +9,7 @@
     <string name="tts_initilization_failed">Failed to initialize the speak engine</string>
     <string name="need_tts_components">This app needs installation of the speech engine components for the following languages: \'%s\'. At the end of the installation please restart the application.</string>
     <string name="need_voice_recognition_components">This app needs installation of voice recognition components. At the end of the installation please restart the application.</string>
+    <string name="need_extension_components">If you want to use additional verbs you have to install the \'Italian Verbs Extension app\', by which you will be able to choose from a database of more than 12000 verbs!</string>
     <string name="speech_locale">en</string>
     <string name="welcome_message">Hello, I\'m miss Puzzy, your crazy teacher of italian. Do you want to study with me?</string>
     <string name="about_msg">This app was written by &lt;a href=\'http://fuoridalsolco.wordpress.com/\'&gt;Marco Perasso&lt;/a&gt; for his sons. Enjoy it!</string>

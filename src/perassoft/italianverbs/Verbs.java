@@ -86,6 +86,7 @@ public class Verbs extends ArrayList<Verb> {
 			if (v.getName().equals(verb.getName()))
 				this.remove(v);
 		add(verb);
+		sort();
 		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
 		MyApplication.getInstance().saveObject(file, this);
 		countVisibleVerbs();

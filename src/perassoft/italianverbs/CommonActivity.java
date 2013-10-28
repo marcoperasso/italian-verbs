@@ -68,6 +68,8 @@ public class CommonActivity extends Activity implements OnInitListener {
 				R.string.need_voice_recognition_components
 				);
 	}
+	
+	
 
 	protected Locale getCurrentLocale() {
 		String locale = getString(R.string.speech_locale);

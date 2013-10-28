@@ -6,7 +6,7 @@
     <string name="score">Punteggio: %d</string>
     <string name="language_not_supported">Lingua non supportata</string>
     <string name="tts_initilization_failed">Fallita inizializzazione del motore vocale</string>
-    <string name="right">Giusto!</string>
+    <string name="need_extension_components">Se vuoi utilizzare ulteriori verbi devi installare l\'applicazione \'Estensione per Verbi Italiani\', con la quale potrai scegliere da un database di oltre 12000 voci!</string>
     <string name="need_tts_components">Per utilizzare questa applicazione è necessario installare i componenti per la sintesi vocale delle lingue: \'%s\'. Terminata l\'installazione dei componenti per favore riavvia l\'applicazione.</string>
     <string name="need_voice_recognition_components">Per utilizzare questa applicazione è necessario installare i componenti di riconoscimento vocale. Terminata l\'installazione dei componenti per favore riavvia l\'applicazione.</string>
     <string name="speech_locale">it-IT</string>
