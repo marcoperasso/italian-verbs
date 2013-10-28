@@ -118,12 +118,6 @@ public class InterrogationActivity extends CommonActivity implements
 		startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
 	}
 
-
-
-	
-
-	
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		outState.putInt(SCORE, score);
@@ -200,15 +194,6 @@ public class InterrogationActivity extends CommonActivity implements
 		textQuestion.setText(questionText);
 		return questionText;
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	
 
 	@Override
 	protected void onSpeechEnded(String utteranceId) {
