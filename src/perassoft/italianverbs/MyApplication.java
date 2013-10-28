@@ -8,17 +8,16 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.util.Locale;
+import java.util.ArrayList;
 
 import android.app.Application;
-import android.speech.tts.TextToSpeech;
 
 public class MyApplication extends Application {
 
 	private static MyApplication application;
 	private Verbs verbs;
 	private boolean verbsLoaded;
-	private TextToSpeech tts;
+	private ArrayList<Integer> messages = new ArrayList<Integer>();
 
 	@Override
 	public void onCreate() {
@@ -34,15 +33,7 @@ public class MyApplication extends Application {
 		}).start();
 	}
 
-	public Locale getCurrentLocale() {
-		String locale = getString(R.string.speech_locale);
-		return new Locale(locale);
-	}
-
-	public Locale getCurrentJokeMessageLocale() {
-		String locale = getString(R.string.speech_joke_message_locale);
-		return new Locale(locale);
-	}
+	
 	public static MyApplication getInstance() {
 		return application;
 	}
@@ -107,14 +98,15 @@ public class MyApplication extends Application {
 		return null;
 	}
 
-	public void setTTS(TextToSpeech tts) {
-		this.tts = tts;
+
+	public boolean isMessageShown(int messageId) {
+		return messages .contains(messageId);
+	}
+
+
+	public void setMessageShown(int messageId) {
+		messages.add(messageId);
 		
 	}
-
-	public TextToSpeech getTTS() {
-		return tts;
-	}
-
 	
 }

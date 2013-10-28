@@ -23,17 +23,19 @@
     <string name="reset_original_verbs">Reset original verbs</string>
     <string name="action_verbs">Verbs&#8230;</string>
     <string name="voice_recognition_not_available">Voice recognition not available</string>
-    <string name="action_learn">Learn...</string>
+    <string name="action_learn">Learn&#8230;</string>
     <string name="again">Again</string>
     <string name="choose_tense">Choose tense</string>
     <string name="choose_mood">Choose mood</string>
     <string name="choose_verb">Choose verb</string>
     <string name="_missing_">(missing)</string>
-    <string name="title_activity_study">Studia i verbi</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_study">Learn Verbs</string>
     <string name="verb">Verb</string>
     <string name="mood">Mood</string>
     <string name="tense">Tense</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="interrogation">Interrogation</string>
+    <string name="learn">Lesson</string>
+    <string name="later">Later</string>
+    <string name="install_now">Install now</string>
 
 </resources>

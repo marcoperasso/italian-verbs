@@ -20,11 +20,5 @@
         android:showAsAction="never"
         android:title="@string/action_verbs">
     </item>
-<item
-        android:id="@+id/action_learn"
-        android:orderInCategory="103"
-        android:icon="@drawable/ic_open_book"
-        android:showAsAction="never"
-        android:title="@string/action_learn">
-    </item>
+
 </menu>

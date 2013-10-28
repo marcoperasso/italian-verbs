@@ -10,7 +10,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,8 +23,6 @@ public class InterrogationActivity extends CommonActivity implements
 	private static final String SCORE = "score";
 	private static final String VERBINDEX = "VIDX";
 	private static final String QUESTION = "Q";
-	private static final String QUESTION_NEEDED = "1";
-	private static final String NEUTRAL = "2";
 	private static final int VOICE_RECOGNITION_REQUEST_CODE = 2;
 	private Random random;
 	private int score = 0;
@@ -35,16 +32,11 @@ public class InterrogationActivity extends CommonActivity implements
 	private int verbIndex;
 	private Button mSpeakButton;
 	private Button mHelpButton;
-	private boolean voiceRecognition;
-
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_interrogation);
-
-	
 
 		random = new Random(System.currentTimeMillis());
 		messages = getResources().getStringArray(R.array.joke_messages);
@@ -56,6 +48,7 @@ public class InterrogationActivity extends CommonActivity implements
 			verb = MyApplication.getInstance().getVerbs().get(verbIndex);
 			setQuestionText();
 		} 
+		
 		updateScoreView();
 		mSpeakButton = (Button) findViewById(R.id.buttonSpeak);
 		mSpeakButton.setOnClickListener(this);
@@ -77,6 +70,11 @@ public class InterrogationActivity extends CommonActivity implements
 		scoreText.setText(String.format(getString(R.string.score), score));
 
 	}
+	@Override
+	public void onInit(int status) {
+		super.onInit(status);
+		generateQuestion();
+	};
 
 	/**
 	 * Fire an intent to start the speech recognition activity.
@@ -143,6 +141,10 @@ public class InterrogationActivity extends CommonActivity implements
 
 			}
 		}
+		else
+		{
+			super.onActivityResult(requestCode, resultCode, data);
+		}
 	}
 
 	private void testAnswer(ArrayList<String> matches) {
@@ -151,26 +153,22 @@ public class InterrogationActivity extends CommonActivity implements
 		boolean right = verb.verify(question, matches);
 		if (right) {
 			message(verb.get(question), NEUTRAL,
-					MyApplication.getInstance().getCurrentJokeMessageLocale(), true);
+					getCurrentJokeMessageLocale(), true);
 			message(getRandomMessage(), QUESTION_NEEDED,
-					MyApplication.getInstance().getCurrentJokeMessageLocale(), true);
+					getCurrentJokeMessageLocale(), true);
 			score++;
 		} else {
 			if (matches.size() > 0)
 			{
 				message(matches.get(0) + "?", NEUTRAL,
-						MyApplication.getInstance().getCurrentJokeMessageLocale(), true);
+						getCurrentJokeMessageLocale(), true);
 			}
 			message(getString(R.string.wrong), NEUTRAL,
-					MyApplication.getInstance().getCurrentLocale(), true);
+					getCurrentLocale(), true);
 			score -= 2;
 		}
 		updateScoreView();
 	}
-
-	
-
-	
 
 	private void generateQuestion() {
 
@@ -192,7 +190,7 @@ public class InterrogationActivity extends CommonActivity implements
 		}
 		setQuestionText();
 		String description = verb.getDescription(question);
-		message(description, NEUTRAL, MyApplication.getInstance().getCurrentJokeMessageLocale(), false);
+		message(description, NEUTRAL, getCurrentJokeMessageLocale(), false);
 
 	}
 
@@ -212,8 +210,8 @@ public class InterrogationActivity extends CommonActivity implements
 
 	
 
-	private void onSpeechEnded(String utteranceId) {
-		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+	@Override
+	protected void onSpeechEnded(String utteranceId) {
 		if (utteranceId.equals(QUESTION_NEEDED))
 			generateQuestion();
 
@@ -227,11 +225,10 @@ public class InterrogationActivity extends CommonActivity implements
 				startVoiceRecognitionActivity(verb.getDescription(question));
 		} else if (v.getId() == R.id.buttonHelp) {
 			if (verb != null) {
-				message(verb.get(question), NEUTRAL,
-						MyApplication.getInstance().getCurrentJokeMessageLocale(), true);
+				message(verb.get(question), QUESTION_NEEDED,
+						getCurrentJokeMessageLocale(), true);
 				score -= 2;
 				updateScoreView();
-				generateQuestion();
 			}
 		}
 

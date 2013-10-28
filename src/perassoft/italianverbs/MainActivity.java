@@ -1,53 +1,38 @@
 package perassoft.italianverbs;
 
-import java.util.List;
-
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends CommonActivity {
-	private boolean voiceRecognition;
-	
+public class MainActivity extends CommonActivity implements OnClickListener {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		 PackageManager pm = getPackageManager();
-		 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-		 List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
-		 if (activities.size() == 0) {
-			 startActivityForInstallVoiceRecognition();
-		 }
-		 else
-		 {
-			 voiceRecognition = true;
-		 }
-		 
-	}
-	private void startActivityForInstallVoiceRecognition() {
-		doOnAsk(getString(R.string.need_voice_recognition_components),
-				new Runnable() {
+		findViewById(R.id.buttonLearn).setOnClickListener(this);
+		findViewById(R.id.buttonInterrogation).setOnClickListener(this);
 
-					@Override
-					public void run() {
-						Intent marketIntent = new Intent(
-								Intent.ACTION_VIEW,
-								Uri.parse("market://search?q=pname:com.google.android.voicesearch"));
-						startActivity(marketIntent);
-					}
-				});
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.buttonLearn) {
+			Intent intent = new Intent(this, StudyActivity.class);
+			startActivity(intent);
+		} else if (v.getId() == R.id.buttonInterrogation) {
+			Intent intent = new Intent(this, InterrogationActivity.class);
+			startActivity(intent);
+		}
+
+	}
+
+	@Override
+	public void onInit(int status) {
+		super.onInit(status);
+		message(getString(R.string.welcome_message), NEUTRAL,
+				getCurrentLocale(), false);
+	}
 
 }

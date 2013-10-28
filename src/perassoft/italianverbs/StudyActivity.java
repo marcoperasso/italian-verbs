@@ -2,12 +2,9 @@ package perassoft.italianverbs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -15,7 +12,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class StudyActivity extends Activity implements OnItemSelectedListener, OnClickListener {
+public class StudyActivity extends CommonActivity implements OnItemSelectedListener, OnClickListener {
 
 	private static final String VERB_INDEX = null;
 	private static final String MOOD_INDEX = null;
@@ -24,7 +21,6 @@ public class StudyActivity extends Activity implements OnItemSelectedListener, O
 	private Spinner spinVerb;
 	private Spinner spinMood;
 	private Spinner spinTense;
-	private TextToSpeech tts;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class StudyActivity extends Activity implements OnItemSelectedListener, O
 		spinVerb = (Spinner) findViewById(R.id.spinnerVerb);
 		spinMood = (Spinner) findViewById(R.id.spinnerMood);
 		spinTense = (Spinner) findViewById(R.id.spinnerTense);
-		findViewById(R.id.buttonLearn).setOnClickListener(this);
+		findViewById(R.id.buttonSayVerbs).setOnClickListener(this);
 		verbs = MyApplication.getInstance().getVerbs();
 
 		List<String> list = new ArrayList<String>();
@@ -54,7 +50,6 @@ public class StudyActivity extends Activity implements OnItemSelectedListener, O
 		spinMood.setAdapter(dataAdapter);
 		spinMood.setOnItemSelectedListener(this);
 
-		tts = MyApplication.getInstance().getTTS();
 		if (savedInstanceState != null)
 		{
 			spinVerb.setSelection(savedInstanceState.getInt(VERB_INDEX));
@@ -135,11 +130,7 @@ public class StudyActivity extends Activity implements OnItemSelectedListener, O
 			String text = verb.get(i);
 			if (text.equals("-"))
 				text = getString(R.string._missing_);
-			if (tts != null)
-			{
-				tts.setLanguage(getCurrentJokeMessageLocale());
-				tts.speak(text, TextToSpeech.QUEUE_ADD, null);
-			}
+			message(text, NEUTRAL, getCurrentJokeMessageLocale(), false);
 			//message(text, 0, getCurrentJokeMessageLocale(), false);
 			if (sb.length() > 0)
 				sb.append("\r\n");
@@ -160,13 +151,10 @@ public class StudyActivity extends Activity implements OnItemSelectedListener, O
 		.setNegativeButton(android.R.string.ok, null)
 				.show();
 	}
-	private Locale getCurrentJokeMessageLocale() {
-		String locale = getString(R.string.speech_joke_message_locale);
-		return new Locale(locale);
-	}
+	
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.buttonLearn)
+		if (v.getId() == R.id.buttonSayVerbs)
 			setLessonResult();
 		
 	}
