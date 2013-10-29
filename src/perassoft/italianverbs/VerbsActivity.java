@@ -57,7 +57,7 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 				boolean itemChecked = lv.isItemChecked(position);
 				if (!itemChecked
 						&& MyApplication.getInstance().getVerbs()
-								.getVisibleVerbs() == 1) {
+								.getVisibleVerbs().size() == 1) {
 					lv.setItemChecked(position, true);
 					return;
 				}

@@ -56,7 +56,7 @@ public class Verb extends ArrayList<String> {
 	 * 
 	 */
 	private static final long serialVersionUID = -4709228867823054044L;
-	private static int visibleVerbItems = countVisibleVerbItems();
+	private static ArrayList<Integer> visibleVerbIndexes = countVisibleVerbItems();
 
 	private String name;
 
@@ -239,33 +239,37 @@ public class Verb extends ArrayList<String> {
 		return (sharedPrefs.getBoolean(getSettingTempo(verbIndex), true));
 	}
 
-	public static int getVisibleVerbItems() {
-		return visibleVerbItems;
+	public static ArrayList<Integer> getVisibleVerbItems() {
+		return visibleVerbIndexes;
 	}
 
 	public static boolean adjustVisibleVerbs(Preference preference,
 			Object newValue) {
-		int newVal = visibleVerbItems;
+		boolean modified = false;
 		for (int i = 0; i < MAX_VERBS; i++)
 			if (preference.getKey().equals(getSettingTempo(i))) {
 				if (Boolean.TRUE.equals(newValue))
-					newVal++;
-				else
-					newVal--;
+				{
+					visibleVerbIndexes.add(i);
+					modified = true;
+				}
+				else if (visibleVerbIndexes.size() > 1)
+				{
+					visibleVerbIndexes.remove((Object)i);
+					modified = true;
+				}
+				break;
 			}
-		if (newVal > 0) {
-			visibleVerbItems = newVal;
-			return true;
-		}
-		return false;
+		
+		return modified;
 	}
 
-	public static int countVisibleVerbItems() {
-		visibleVerbItems = 0;
+	public static ArrayList<Integer> countVisibleVerbItems() {
+		visibleVerbIndexes = new ArrayList<Integer>();
 		for (int i = 0; i < MAX_VERBS; i++)
 			if (isVisible(i))
-				visibleVerbItems++;
-		return visibleVerbItems;
+				visibleVerbIndexes.add(i);
+		return visibleVerbIndexes;
 	}
 
 	public boolean verify(int question, ArrayList<String> answers) {

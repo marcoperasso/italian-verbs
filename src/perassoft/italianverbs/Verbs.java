@@ -19,7 +19,7 @@ public class Verbs extends ArrayList<Verb> {
 	 * 
 	 */
 	private static final long serialVersionUID = 3464198266953132774L;
-	private int visibleVerbs;
+	private ArrayList<Verb> visibleVerbs;
 
 	private Verbs() {
 
@@ -81,6 +81,7 @@ public class Verbs extends ArrayList<Verb> {
 		MyApplication.getInstance().saveObject(file, this);
 		countVisibleVerbs();
 	}
+
 	public void addVerb(Verb verb) throws IOException {
 		for (Verb v : this)
 			if (v.getName().equals(verb.getName()))
@@ -91,6 +92,7 @@ public class Verbs extends ArrayList<Verb> {
 		MyApplication.getInstance().saveObject(file, this);
 		countVisibleVerbs();
 	}
+
 	public void setHiddenVerb(Verb v, boolean b) {
 		SharedPreferences settings = MyApplication.getInstance()
 				.getSharedPreferences(VERBS, 0);
@@ -99,19 +101,16 @@ public class Verbs extends ArrayList<Verb> {
 		for (String s : verbs.split(","))
 			vv.add(s);
 		if (b) {
-			if (!vv.contains(v.getName()))
-			{
+			if (!vv.contains(v.getName())) {
 				vv.add(v.getName());
 			}
 		} else {
-			if (vv.contains(v.getName()))
-			{
+			if (vv.contains(v.getName())) {
 				vv.remove(v.getName());
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		for (String s: vv)
-		{
+		for (String s : vv) {
 			if (sb.length() > 0)
 				sb.append(',');
 			sb.append(s);
@@ -133,18 +132,21 @@ public class Verbs extends ArrayList<Verb> {
 	}
 
 	public int countVisibleVerbs() {
-		visibleVerbs = 0;
-		for (int i = 0; i < size(); i++)
-			if (!isHiddenVerb(get(i)))
-				visibleVerbs++;
-		if (visibleVerbs == 0)
-		{
-			setHiddenVerb(get(0), false);
+		visibleVerbs = new ArrayList<Verb>();
+		for (int i = 0; i < size(); i++) {
+			Verb verb = get(i);
+			if (!isHiddenVerb(verb))
+				visibleVerbs.add(verb);
 		}
-		return visibleVerbs;
+		if (visibleVerbs.size() == 0) {
+			Verb v = get(0);
+			setHiddenVerb(v, false);
+			visibleVerbs.add(v);
+		}
+		return visibleVerbs.size();
 	}
 
-	public int getVisibleVerbs() {
+	public ArrayList<Verb> getVisibleVerbs() {
 		return visibleVerbs;
 	}
 
@@ -154,7 +156,7 @@ public class Verbs extends ArrayList<Verb> {
 			file.delete();
 		SharedPreferences settings = MyApplication.getInstance()
 				.getSharedPreferences(VERBS, 0);
-		
+
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putString(HIDDEN_VERBS, "");
 		editor.commit();
@@ -163,14 +165,12 @@ public class Verbs extends ArrayList<Verb> {
 
 	public void sort() {
 		Collections.sort(this, new Comparator<Verb>() {
-		    public int compare(Verb a, Verb b) {
-		        return a.getName().compareTo(b.getName());
-		    }
-		   
+			public int compare(Verb a, Verb b) {
+				return a.getName().compareTo(b.getName());
+			}
+
 		});
-		
+
 	}
 
-	
-	
 }

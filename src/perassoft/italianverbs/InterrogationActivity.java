@@ -45,17 +45,18 @@ public class InterrogationActivity extends CommonActivity implements
 			score = savedInstanceState.getInt(SCORE, 0);
 			verbIndex = savedInstanceState.getInt(VERBINDEX);
 			question = savedInstanceState.getInt(QUESTION);
-			verb = MyApplication.getInstance().getVerbs().get(verbIndex);
+			verb = MyApplication.getInstance().getVerbs().getVisibleVerbs()
+					.get(verbIndex);
 			setQuestionText();
-		} 
-		
+		}
+
 		updateScoreView();
 		mSpeakButton = (Button) findViewById(R.id.buttonSpeak);
 		mSpeakButton.setOnClickListener(this);
 		mHelpButton = (Button) findViewById(R.id.buttonHelp);
 		mHelpButton.setOnClickListener(this);
-		
-		EditText editText = (EditText)findViewById(R.id.editTextAnswer);
+
+		EditText editText = (EditText) findViewById(R.id.editTextAnswer);
 		editText.setOnEditorActionListener(this);
 		editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
@@ -70,6 +71,7 @@ public class InterrogationActivity extends CommonActivity implements
 		scoreText.setText(String.format(getString(R.string.score), score));
 
 	}
+
 	@Override
 	public void onInit(int status) {
 		super.onInit(status);
@@ -83,9 +85,9 @@ public class InterrogationActivity extends CommonActivity implements
 	 * @param text
 	 */
 	private void startVoiceRecognitionActivity(String text) {
-		if (!voiceRecognition)
-		{
-			Toast.makeText(this, R.string.voice_recognition_not_available, Toast.LENGTH_LONG).show();
+		if (!voiceRecognition) {
+			Toast.makeText(this, R.string.voice_recognition_not_available,
+					Toast.LENGTH_LONG).show();
 			return;
 		}
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -134,9 +136,7 @@ public class InterrogationActivity extends CommonActivity implements
 				testAnswer(matches);
 
 			}
-		}
-		else
-		{
+		} else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
 	}
@@ -146,19 +146,18 @@ public class InterrogationActivity extends CommonActivity implements
 		// could have heard
 		boolean right = verb.verify(question, matches);
 		if (right) {
-			message(verb.get(question), NEUTRAL,
-					getCurrentJokeMessageLocale(), true);
+			message(verb.get(question), NEUTRAL, getCurrentJokeMessageLocale(),
+					true);
 			message(getRandomMessage(), QUESTION_NEEDED,
 					getCurrentJokeMessageLocale(), true);
 			score++;
 		} else {
-			if (matches.size() > 0)
-			{
+			if (matches.size() > 0) {
 				message(matches.get(0) + "?", NEUTRAL,
 						getCurrentJokeMessageLocale(), true);
 			}
-			message(getString(R.string.wrong), NEUTRAL,
-					getCurrentLocale(), true);
+			message(getString(R.string.wrong), NEUTRAL, getCurrentLocale(),
+					true);
 			score -= 2;
 		}
 		updateScoreView();
@@ -167,16 +166,14 @@ public class InterrogationActivity extends CommonActivity implements
 	private void generateQuestion() {
 
 		Verbs verbs = MyApplication.getInstance().getVerbs();
-		verbIndex = random.nextInt(verbs.getVisibleVerbs());
-		verb = verbs.get(verbIndex);
-		while (Verbs.isHiddenVerb(verb)) {
-			verbIndex++;
-			verb = verbs.get(verbIndex);
-		}
-		question = random.nextInt(Verb.getVisibleVerbItems());
-		while (!Verb.isVisible(question))
-			question++;
+		ArrayList<Verb> visibleVerbs = verbs.getVisibleVerbs();
+		verbIndex = random.nextInt(visibleVerbs.size());
+		verb = visibleVerbs.get(verbIndex);
 
+		ArrayList<Integer> visibleVerbItems = Verb.getVisibleVerbItems();
+		int i = random.nextInt(visibleVerbItems.size());
+
+		question = visibleVerbItems.get(i);
 		String s = verb.get(question);
 		if (s.equals("-")) {
 			generateQuestion();
@@ -206,7 +203,7 @@ public class InterrogationActivity extends CommonActivity implements
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonSpeak) {
 			if (verb != null)
-				
+
 				startVoiceRecognitionActivity(verb.getDescription(question));
 		} else if (v.getId() == R.id.buttonHelp) {
 			if (verb != null) {
@@ -221,15 +218,16 @@ public class InterrogationActivity extends CommonActivity implements
 
 	@Override
 	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-		 if (actionId == EditorInfo.IME_ACTION_DONE || (event.getAction() == KeyEvent.ACTION_DOWN &&
-	                event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+		if (actionId == EditorInfo.IME_ACTION_DONE
+				|| (event.getAction() == KeyEvent.ACTION_DOWN && event
+						.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
 
-			 ArrayList<String> list  = new ArrayList<String>();
-				list.add(v.getText().toString());
-				testAnswer(list);
+			ArrayList<String> list = new ArrayList<String>();
+			list.add(v.getText().toString());
+			testAnswer(list);
 
-             return true;
-         }
+			return true;
+		}
 		return false;
 	}
 }
