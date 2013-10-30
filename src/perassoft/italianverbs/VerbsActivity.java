@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 public class VerbsActivity extends CommonActivity implements OnClickListener {
 
-	private static final int DOWNLOAD_VERB_RESULT = 1;
 	private static final int menuDeleteLocal = 0;
 	private Verb[] arVerbs;
 	private Verb mActiveItem;
@@ -149,7 +148,7 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 			}
 			else
 			{
-				startActivityForResult(intent, DOWNLOAD_VERB_RESULT);
+				startActivityForResult(intent, RESULT_DOWNLOAD_VERB);
 			}
 		}
 		else if (v.getId() == R.id.buttonReset) {
@@ -174,7 +173,7 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == DOWNLOAD_VERB_RESULT)
+		if (requestCode == RESULT_DOWNLOAD_VERB)
 		{
 			if (RESULT_OK == resultCode)
 			{

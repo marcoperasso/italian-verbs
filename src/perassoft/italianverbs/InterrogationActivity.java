@@ -6,6 +6,7 @@ import java.util.Random;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -23,7 +24,6 @@ public class InterrogationActivity extends CommonActivity implements
 	private static final String SCORE = "score";
 	private static final String VERBINDEX = "VIDX";
 	private static final String QUESTION = "Q";
-	private static final int VOICE_RECOGNITION_REQUEST_CODE = 2;
 	private Random random;
 	private int score = 0;
 	private String[] messages;
@@ -117,7 +117,7 @@ public class InterrogationActivity extends CommonActivity implements
 
 		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "it-IT");
 
-		startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+		startActivityForResult(intent, RESULT_VOICE_RECOGNITION);
 	}
 
 	@Override
@@ -129,14 +129,17 @@ public class InterrogationActivity extends CommonActivity implements
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == VOICE_RECOGNITION_REQUEST_CODE) {
+		if (requestCode == RESULT_VOICE_RECOGNITION) {
 			if (resultCode == RESULT_OK) {
 				ArrayList<String> matches = data
 						.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 				testAnswer(matches);
 
 			}
-		} else {
+		} else if (requestCode == RESULT_SETTINGS || requestCode == RESULT_VERBS){
+			generateQuestion();
+			super.onActivityResult(requestCode, resultCode, data);
+		}else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
 	}
@@ -198,6 +201,7 @@ public class InterrogationActivity extends CommonActivity implements
 			generateQuestion();
 
 	}
+
 
 	@Override
 	public void onClick(View v) {

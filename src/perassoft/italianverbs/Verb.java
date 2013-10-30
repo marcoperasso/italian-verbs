@@ -258,7 +258,6 @@ public class Verb extends ArrayList<String> {
 					visibleVerbIndexes.remove((Object)i);
 					modified = true;
 				}
-				break;
 			}
 		
 		return modified;

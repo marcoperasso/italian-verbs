@@ -33,11 +33,14 @@ public class CommonActivity extends Activity implements OnInitListener {
 	protected boolean voiceRecognition;
 	protected static final String QUESTION_NEEDED = "1";
 	protected static final String NEUTRAL = "2";
-	
-	private static final int RESULT_SPEECH_CHECK_CODE = 0;
 	private static final String TTS = "TTS";
-	private static final int RESULT_SETTINGS = 1;
-
+	
+	protected static final int RESULT_SPEECH_CHECK_CODE = 0;
+	protected static final int RESULT_SETTINGS = 1;
+	protected static final int RESULT_VERBS = 2;
+	protected static final int RESULT_VOICE_RECOGNITION = 3;
+	protected static final int RESULT_DOWNLOAD_VERB = 4;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
@@ -183,7 +186,7 @@ public class CommonActivity extends Activity implements OnInitListener {
 
 						@Override
 						public void run() {
-							onSpeechEnded(id);
+							CommonActivity.this.onSpeechEnded(id);
 						}
 
 					});
@@ -266,7 +269,7 @@ public class CommonActivity extends Activity implements OnInitListener {
 		}
 		case R.id.action_verbs: {
 			Intent intent = new Intent(this, VerbsActivity.class);
-			startActivityForResult(intent, RESULT_SETTINGS);
+			startActivityForResult(intent, RESULT_VERBS);
 			break;
 		}
 		}

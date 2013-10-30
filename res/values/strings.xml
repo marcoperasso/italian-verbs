@@ -23,7 +23,7 @@
     <string name="reset_original_verbs">Reset original verbs</string>
     <string name="action_verbs">Verbs&#8230;</string>
     <string name="voice_recognition_not_available">Voice recognition not available</string>
-    <string name="_missing_">(missing)</string>
+    <string name="_missing_" translatable="false">(manca)</string>
     <string name="title_activity_study">Learn Verbs</string>
     <string name="verb">Verb</string>
     <string name="mood">Mood</string>

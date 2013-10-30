@@ -54,18 +54,19 @@ public class Verbs extends ArrayList<Verb> {
 
 	public static Verbs loadVerbs() {
 		File file = MyApplication.getInstance().getFileStreamPath(VERBI_BIN);
-		if (!file.exists()) {
-			Verbs verbs = loadFromResource();
-			try {
-				MyApplication.getInstance().saveObject(file, verbs);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return verbs;
-		} else {
-			return (Verbs) MyApplication.getInstance().readObject(file);
+		if (file.exists()) {
+			Verbs v = (Verbs) MyApplication.getInstance().readObject(file);
+			if (v != null)
+				return v;
 		}
+		Verbs verbs = loadFromResource();
+		try {
+			MyApplication.getInstance().saveObject(file, verbs);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return verbs;
 	}
 
 	public Verb get(String string) {
