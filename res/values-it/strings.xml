@@ -29,5 +29,11 @@
     <string name="later">Dopo</string>
     <string name="install_now">Installa ora</string>
     <string name="title_activity_study">Impara i verbi</string>
+    <string name="title_activity_sentences">Frasi per Miss Puzzy</string>
+    <string name="delete_sentence">Elimina</string>
+    <string name="sentences">Frasi</string>
+    <string name="use_only_my_sentences">Usa solo le mie frasi</string>
+    <string name="no_sentences">Non ci sono frasi personalizzate al momento, puoi aggiungerne una usando la tastiera, o la voce toccando il microfono.</string>
+    <string name="tell_your_sentence_to_miss_puzzy">Suggerisci la tua frase a Miss Puzzy</string>
     
 </resources>

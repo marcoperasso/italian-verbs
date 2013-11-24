@@ -32,5 +32,11 @@
     <string name="learn">Lesson</string>
     <string name="later">Later</string>
     <string name="install_now">Install now</string>
+    <string name="title_activity_sentences">Sentences for Miss Puzzy</string>
+    <string name="delete_sentence">Delete</string>
+    <string name="sentences">Sentences</string>
+    <string name="use_only_my_sentences">Use only my sentences</string>
+    <string name="no_sentences">There are no custom sentences at present, you can add one by using the keyboard, or your voice tapping the microphone button.</string>
+    <string name="tell_your_sentence_to_miss_puzzy">Tell your sentence to Miss Puzzy</string>
 
 </resources>

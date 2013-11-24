@@ -34,16 +34,16 @@ public class CommonActivity extends Activity implements OnInitListener {
 	protected static final String QUESTION_NEEDED = "1";
 	protected static final String NEUTRAL = "2";
 	private static final String TTS = "TTS";
-	
+
 	protected static final int RESULT_SPEECH_CHECK_CODE = 0;
 	protected static final int RESULT_SETTINGS = 1;
 	protected static final int RESULT_VERBS = 2;
 	protected static final int RESULT_VOICE_RECOGNITION = 3;
 	protected static final int RESULT_DOWNLOAD_VERB = 4;
-	
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		PackageManager pm = getPackageManager();
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 		List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
@@ -60,19 +60,15 @@ public class CommonActivity extends Activity implements OnInitListener {
 	private void startActivityForInstallVoiceRecognition() {
 		doOnAsk(new Runnable() {
 
-					@Override
-					public void run() {
-						Intent marketIntent = new Intent(
-								Intent.ACTION_VIEW,
-								Uri.parse("market://search?q=pname:com.google.android.voicesearch"));
-						startActivity(marketIntent);
-					}
-				},
-				R.string.need_voice_recognition_components
-				);
+			@Override
+			public void run() {
+				Intent marketIntent = new Intent(
+						Intent.ACTION_VIEW,
+						Uri.parse("market://search?q=pname:com.google.android.voicesearch"));
+				startActivity(marketIntent);
+			}
+		}, R.string.need_voice_recognition_components);
 	}
-	
-	
 
 	protected Locale getCurrentLocale() {
 		String locale = getString(R.string.speech_locale);
@@ -144,22 +140,21 @@ public class CommonActivity extends Activity implements OnInitListener {
 	}
 
 	private void startActivityForInstallTTS() {
-		doOnAsk(
-				new Runnable() {
+		doOnAsk(new Runnable() {
 
-					@Override
-					public void run() {
-						// missing data, install it
-						Intent installIntent = new Intent();
-						installIntent
-								.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-						startActivity(installIntent);
+			@Override
+			public void run() {
+				// missing data, install it
+				Intent installIntent = new Intent();
+				installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+				startActivity(installIntent);
 
-					}
-				},
-				R.string.need_tts_components, 
-				getNeededLanguages()
-				);
+			}
+		}, R.string.need_tts_components, getNeededLanguages());
+	}
+
+	private void doOnSpeechEnded(String id) {
+		onSpeechEnded(id);
 	}
 
 	@Override
@@ -186,7 +181,7 @@ public class CommonActivity extends Activity implements OnInitListener {
 
 						@Override
 						public void run() {
-							CommonActivity.this.onSpeechEnded(id);
+							doOnSpeechEnded(id);
 						}
 
 					});
@@ -202,7 +197,7 @@ public class CommonActivity extends Activity implements OnInitListener {
 						Toast.LENGTH_LONG).show();
 				Log.e(TTS, getString(R.string.language_not_supported));
 			}
-			
+
 		} else {
 			Toast.makeText(this, R.string.tts_initilization_failed,
 					Toast.LENGTH_LONG).show();
@@ -222,7 +217,8 @@ public class CommonActivity extends Activity implements OnInitListener {
 
 	}
 
-	protected void doOnAsk(final Runnable runnable, int messageId, Object... params) {
+	protected void doOnAsk(final Runnable runnable, int messageId,
+			Object... params) {
 		if (MyApplication.getInstance().isMessageShown(messageId))
 			return;
 		MyApplication.getInstance().setMessageShown(messageId);
@@ -272,6 +268,11 @@ public class CommonActivity extends Activity implements OnInitListener {
 			startActivityForResult(intent, RESULT_VERBS);
 			break;
 		}
+		case R.id.action_sentences: {
+			Intent intent = new Intent(this, SentencesActivity.class);
+			startActivityForResult(intent, RESULT_VERBS);
+			break;
+		}
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -280,20 +281,22 @@ public class CommonActivity extends Activity implements OnInitListener {
 	protected void onDestroy() {
 		if (tts != null) {
 			tts.stop();
+			tts.shutdown();
 		}
 		super.onDestroy();
 	}
 
 	private String getNeededLanguages() {
 		StringBuilder sb = new StringBuilder();
-		String displayLanguage = getCurrentLocale()
-				.getDisplayLanguage();
+		String displayLanguage = getCurrentLocale().getDisplayLanguage();
 		sb.append(displayLanguage);
-		String displayLanguage2 = getCurrentJokeMessageLocale().getDisplayLanguage();
+		String displayLanguage2 = getCurrentJokeMessageLocale()
+				.getDisplayLanguage();
 
-		if (!displayLanguage2.equals(displayLanguage))
+		if (!displayLanguage2.equals(displayLanguage)) {
 			sb.append(", ");
-		sb.append(displayLanguage2);
+			sb.append(displayLanguage2);
+		}
 		return sb.toString();
 	}
 

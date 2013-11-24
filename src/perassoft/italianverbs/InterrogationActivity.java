@@ -1,14 +1,13 @@
 package perassoft.italianverbs;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.speech.tts.TextToSpeech;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -62,8 +61,28 @@ public class InterrogationActivity extends CommonActivity implements
 
 	}
 
-	private String getRandomMessage() {
-		return messages[random.nextInt(messages.length)];
+	private Locale getRandomMessage(StringBuilder sb) {
+		
+		Sentences ss = Sentences.getSentences();
+		if (ss.isOnlyMine())
+		{
+			if (ss.size() == 0)
+			{
+				return null;
+			}
+			int idx = random.nextInt(ss.size());
+			
+			sb.append(ss.get(idx));
+			return Locale.getDefault();
+		}
+		int idx = random.nextInt(messages.length + ss.size());
+		if (idx < messages.length)
+		{
+			sb.append(messages[idx]);
+			return getCurrentJokeMessageLocale();
+		}
+		sb.append(ss.get(idx - messages.length));
+		return Locale.getDefault();
 	}
 
 	private void updateScoreView() {
@@ -151,8 +170,13 @@ public class InterrogationActivity extends CommonActivity implements
 		if (right) {
 			message(verb.get(question), NEUTRAL, getCurrentJokeMessageLocale(),
 					true);
-			message(getRandomMessage(), QUESTION_NEEDED,
-					getCurrentJokeMessageLocale(), true);
+			StringBuilder msg = new StringBuilder();
+			Locale loc = getRandomMessage(msg);
+			if (loc != null)
+				message(msg.toString(), QUESTION_NEEDED,
+					loc, true);
+			else
+				generateQuestion();
 			score++;
 		} else {
 			if (matches.size() > 0) {
