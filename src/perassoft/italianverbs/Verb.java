@@ -220,7 +220,7 @@ public class Verb extends ArrayList<String> {
 	public String getDescription(int question) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Verbo ");
-		sb.append(name);
+		sb.append(name.toLowerCase());
 		sb.append(", modo ");
 		sb.append(getMood(question));
 		sb.append(", tempo ");
