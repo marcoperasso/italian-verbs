@@ -7,6 +7,8 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends CommonActivity implements OnClickListener {
 
+	private boolean resumed;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -14,6 +16,7 @@ public class MainActivity extends CommonActivity implements OnClickListener {
 		findViewById(R.id.buttonLearn).setOnClickListener(this);
 		findViewById(R.id.buttonInterrogation).setOnClickListener(this);
 
+		resumed = savedInstanceState != null;
 	}
 
 	@Override
@@ -31,8 +34,9 @@ public class MainActivity extends CommonActivity implements OnClickListener {
 	@Override
 	public void onInit(int status) {
 		super.onInit(status);
-		message(getString(R.string.welcome_message), NEUTRAL,
-				getCurrentLocale(), false);
+		if (!resumed)
+			message(getString(R.string.welcome_message), NEUTRAL,
+					getCurrentLocale(), false);
 	}
 
 }

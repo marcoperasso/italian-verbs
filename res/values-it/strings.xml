@@ -35,5 +35,8 @@
     <string name="use_only_my_sentences">Usa solo le mie frasi</string>
     <string name="no_sentences">Non ci sono frasi personalizzate al momento, puoi aggiungerne una usando la tastiera, o la voce toccando il microfono.</string>
     <string name="tell_your_sentence_to_miss_puzzy">Suggerisci la tua frase a Miss Puzzy</string>
+    <string name="choose_the_verb">Scegli il verbo</string>
+    <string name="download_new_verb">Scarica nuovo verbo</string>
+    <string name="please_wait">Prego attendere&#8230;</string>
     
 </resources>

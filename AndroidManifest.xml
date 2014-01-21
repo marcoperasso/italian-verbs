@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="perassoft.italianverbs"
     android:installLocation="auto"
-    android:versionCode="9"
-    android:versionName="1.6" >
+    android:versionCode="10"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="perassoft.italianverbs.MyApplication"
@@ -15,7 +17,8 @@
         android:allowClearUserData="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.Light.Panel.Workaround" >
         <activity
             android:name="perassoft.italianverbs.InterrogationActivity"
             android:label="@string/app_name" >
@@ -44,8 +47,12 @@
         </activity>
         <activity
             android:name="perassoft.italianverbs.SentencesActivity"
-            android:label="@string/title_activity_sentences" 
+            android:label="@string/title_activity_sentences"
             android:windowSoftInputMode="stateUnchanged" >
+        </activity>
+        <activity
+            android:name="perassoft.italianverbs.VerbDownloaderActivity"
+            android:label="@string/app_name" android:windowSoftInputMode="stateVisible">
         </activity>
     </application>
 

@@ -37,8 +37,6 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 		findViewById(R.id.buttonReset).setOnClickListener(this);
 	}
 
-	
-
 	private ListView populate() {
 		Verbs verbs = MyApplication.getInstance().getVerbs();
 		arVerbs = new Verb[verbs.size()];
@@ -61,8 +59,9 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 				}
 
 				Verb v = (Verb) lv.getItemAtPosition(position);
-				MyApplication.getInstance().getVerbs().setHiddenVerb(v, !itemChecked);
-				
+				MyApplication.getInstance().getVerbs()
+						.setHiddenVerb(v, !itemChecked);
+
 			}
 		});
 		registerForContextMenu(lv);
@@ -89,7 +88,7 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case menuDeleteLocal:
-			
+
 			Helper.dialogMessage(
 					this,
 					getString(R.string.are_you_sure_to_delete_verb,
@@ -123,7 +122,6 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 
 	}
 
-
 	private void addVerb(Verb verb) {
 		Verbs verbs = MyApplication.getInstance().getVerbs();
 		try {
@@ -133,52 +131,51 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 			return;
 		}
 		populate();
-		
+
 	}
+
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.buttonAdd) {
-			PackageManager pm = getPackageManager();
-			Intent intent = new Intent();
-			intent.setClassName("perassoft.italianverbsextension", "perassoft.italianverbsextension.VerbDownloaderActivity");
-			List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
-			if (activities.size() == 0) {
-				 startActivityForInstallExtension();
-			}
-			else
-			{
-				startActivityForResult(intent, RESULT_DOWNLOAD_VERB);
-			}
-		}
-		else if (v.getId() == R.id.buttonReset) {
+			/*
+			 * PackageManager pm = getPackageManager(); Intent intent = new
+			 * Intent(); intent.setClassName("perassoft.italianverbsextension",
+			 * "perassoft.italianverbsextension.VerbDownloaderActivity");
+			 * List<ResolveInfo> activities = pm.queryIntentActivities(intent,
+			 * 0); if (activities.size() == 0) {
+			 * startActivityForInstallExtension(); }
+			 */
+			Intent intent = new Intent(this, VerbDownloaderActivity.class);
+
+			startActivityForResult(intent, RESULT_DOWNLOAD_VERB);
+
+		} else if (v.getId() == R.id.buttonReset) {
 			Verbs.restoreOriginal();
 			populate();
 		}
 	}
-	
+
 	private void startActivityForInstallExtension() {
 		doOnAsk(new Runnable() {
 
-					@Override
-					public void run() {
-						Intent marketIntent = new Intent(
-								Intent.ACTION_VIEW,
-								Uri.parse("market://search?q=pname:perassoft.italianverbsextension"));
-						startActivity(marketIntent);
-					}
-				},
-				R.string.need_extension_components
-				);
+			@Override
+			public void run() {
+				Intent marketIntent = new Intent(
+						Intent.ACTION_VIEW,
+						Uri.parse("market://search?q=pname:perassoft.italianverbsextension"));
+				startActivity(marketIntent);
+			}
+		}, R.string.need_extension_components);
 	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == RESULT_DOWNLOAD_VERB)
-		{
-			if (RESULT_OK == resultCode)
-			{
+		if (requestCode == RESULT_DOWNLOAD_VERB) {
+			if (RESULT_OK == resultCode) {
 				if (data.getExtras() == null)
 					return;
-				CharSequence[] lines = data.getExtras().getCharSequenceArray("VERB");
+				CharSequence[] lines = data.getExtras().getCharSequenceArray(
+						"VERB");
 				if (lines == null)
 					return;
 				Verb verb = new Verb(lines[0].toString());
@@ -186,17 +183,14 @@ public class VerbsActivity extends CommonActivity implements OnClickListener {
 					verb.add(lines[i].toString());
 				}
 				addVerb(verb);
-				
+
+			} else {
+				// Toast.makeText(this, R.string.not_available_yet,
+				// Toast.LENGTH_LONG).show();
 			}
-			else
-			{
-				//Toast.makeText(this, R.string.not_available_yet, Toast.LENGTH_LONG).show();
-			}
-			
+
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-
-
 
 }
