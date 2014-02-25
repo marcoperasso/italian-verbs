@@ -1,12 +1,9 @@
 package perassoft.italianverbs;
 
 import java.io.IOException;
-import java.util.List;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;

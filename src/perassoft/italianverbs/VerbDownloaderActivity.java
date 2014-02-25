@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,7 +22,9 @@ import android.widget.TextView.OnEditorActionListener;
 
 public class VerbDownloaderActivity extends Activity implements
 		OnClickListener, OnEditorActionListener {
-
+	static final String HTTP_CONTROLLER =   "http://www.smartpointer.it/verbs/";
+	static final String HTTP_VERBS_GET = HTTP_CONTROLLER + "get/";
+	static final String HTTP_VERBS_GETHINTS = HTTP_CONTROLLER + "gethints/";
 	private AutoCompleteTextView mEditVerb;
 
 	@Override
@@ -35,8 +36,9 @@ public class VerbDownloaderActivity extends Activity implements
 		findViewById(R.id.buttonGo).setOnClickListener(this);
 		findViewById(R.id.buttonCancel).setOnClickListener(this);
 		mEditVerb = ((AutoCompleteTextView) findViewById(R.id.editTextVerb));
-		VerbsAutoCompleteAdapter adapter = new VerbsAutoCompleteAdapter(this, R.xml.mylist);
-				//android.R.layout.simple_dropdown_item_1line);
+		VerbsAutoCompleteAdapter adapter = new VerbsAutoCompleteAdapter(this,
+				R.xml.mylist);
+		// android.R.layout.simple_dropdown_item_1line);
 
 		mEditVerb.setAdapter(adapter);
 		mEditVerb.setOnEditorActionListener(this);
@@ -61,7 +63,7 @@ public class VerbDownloaderActivity extends Activity implements
 		progressBar.setCancelable(false);
 		progressBar.setIndeterminate(true);
 		progressBar.setMessage(getString(R.string.please_wait));
-		
+
 		progressBar.show();
 
 		new AsyncTask<String, Void, DownloadResult>() {
@@ -82,7 +84,7 @@ public class VerbDownloaderActivity extends Activity implements
 				try {
 					byte[] p = params[0].getBytes("UTF-8");
 					String base64 = Base64.encodeToString(p, Base64.DEFAULT);
-					URL url = new URL("http://www.ecommuters.com/verbs/get/"
+					URL url = new URL(HTTP_VERBS_GET
 							+ base64);
 					InputStream openStream = url.openStream();
 					BufferedReader reader;

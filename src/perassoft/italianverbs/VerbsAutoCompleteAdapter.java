@@ -13,7 +13,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 class VerbsAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
-    private ArrayList<String> resultList;
+   private ArrayList<String> resultList;
     
     public VerbsAutoCompleteAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
@@ -32,7 +32,7 @@ class VerbsAutoCompleteAdapter extends ArrayAdapter<String> implements Filterabl
     private ArrayList<String> autocomplete(String string) {
     	ArrayList<String> verbs = new ArrayList<String>();
 		try {
-    		URL url = new URL("http://www.ecommuters.com/verbs/gethints/" + URLEncoder.encode(string, "UTF-8"));
+    		URL url = new URL(VerbDownloaderActivity.HTTP_VERBS_GETHINTS + URLEncoder.encode(string, "UTF-8"));
 			InputStream openStream = url.openStream();
 			BufferedReader reader;
 			reader = new BufferedReader(new InputStreamReader(openStream));
